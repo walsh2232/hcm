@@ -1,0 +1,39 @@
+# ---- Secrets & credentials (never commit) -------------------------------
+*.env
+.env*
+!.env.example
+credentials*.json
+*.pem
+*.key
+*.p12
+*.jks
+wallet/
+
+# ---- Oracle HCM extracts & data -----------------------------------------
+# Real HCM data contains PII. Only templates and synthetic fixtures belong
+# in the repo; anything under data/live/ is quarantined by default.
+data/live/
+data/**/*.dat
+data/**/*.zip
+!data/**/templates/*.dat
+*.csv
+!**/fixtures/*.csv
+!**/templates/*.csv
+
+# ---- Downloaded Oracle documentation ------------------------------------
+# Binary Oracle PDFs are referenced by the source registry, not stored in
+# git. See .project/docs/README.md for the storage contract.
+.project/docs/oracle/**/*.pdf
+.project/docs/oracle/**/*.docx
+.project/docs/oracle/**/*.xlsx
+
+# ---- Tooling ------------------------------------------------------------
+__pycache__/
+*.pyc
+.venv/
+venv/
+node_modules/
+.DS_Store
+*.log
+.idea/
+.vscode/

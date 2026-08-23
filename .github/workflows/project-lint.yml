@@ -1,0 +1,30 @@
+name: Project lint
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+jobs:
+  project-lint:
+    name: Validate project operating system
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run project lint
+        run: python3 scripts/project_lint.py
+
+      - name: Guard against production data
+        run: |
+          # Backstop for ADR-0003 / RISK-005. The control is that nobody commits
+          # production data; this catches the obvious accidents.
+          if git ls-files | grep -E '^data/live/|\.dat$' | grep -v '/templates/'; then
+            echo "::error::Files matching production data patterns are tracked. See data/README.md."
+            exit 1
+          fi
+          echo "No tracked files match production data patterns."
