@@ -13,17 +13,15 @@ readings) · `SCOPE` (a business decision, not a documentation question) ·
 ## Open gaps
 
 ### GAP-001 · MISSING · **Critical**
-**No Oracle HCM documentation has been supplied to the project.**
+**Recruiting's public Oracle source set is registered, but the source index has not yet been built in a user's local environment; other module source sets have not yet been inventoried.**
 
-- Blocks: `HCM-010`, and every module design card in the backlog (`HCM-020`–`HCM-035`).
-- Owner: Product Owner (to supply) / Documentation Specialist (to register).
-- Needed: the document set plus a manifest — title, Oracle document ID or URL,
-  release described, and modules covered, per [`README.md` §Intake](README.md).
-- Working assumption: `ASM-001`, `ASM-003`.
-- Target: next intake batch.
-- If unresolved: no module design decision can meet the validation test in
-  `decision-framework.md` §3. The project can complete scope, environment,
-  success-criteria, and current-state cards and then stops.
+- Progress: ORC now has a verified source manifest for Implementing Recruiting, Using Recruiting, Using and Administering Recruiting Booster, Recruiting 26D What's New, its feature summary, and Oracle's guide catalog. A local download/extraction/SQLite FTS retrieval pipeline and weekly URL/fingerprint check are committed.
+- Blocks: documentation-dependent design for modules whose source set is not yet registered; functional decisions still require target-release and tenant validation.
+- Owner: Documentation Specialist.
+- Needed: run the local refresh and ingest commands for ORC, verify retrieved passages and page locators, then populate additional module manifests from each module's actual Oracle catalog pages. Do not commit Oracle manuals or full-text extracts to this public repository.
+- Working assumption: ASM-001 and ASM-003 remain open pending project scope and release decisions.
+- Target: HCM-010 source-intake completion.
+- If unresolved: the pipeline exists but recommendations remain bounded by public documentation, not tenant configuration or Oracle Support material behind authentication.
 
 ### GAP-002 · SCOPE · **Critical**
 **In-scope HCM modules, target release, and phasing are undefined.**
