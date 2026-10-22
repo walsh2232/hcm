@@ -51,6 +51,9 @@ def load_manifest(path: Path | None = None) -> dict:
             url = source.get(key)
             if url and urlsplit(url).hostname not in data["source_policy"]["allowed_hosts"]:
                 raise ValueError(f"Disallowed source host in manifest: {url}")
+        if source.get("source_type") == "release_discovery_pattern":
+            if not source.get("release_url_template") or not source.get("required_title_terms"):
+                raise ValueError("Release discovery patterns must define release_url_template and required_title_terms.")
     return data
 
 
@@ -206,6 +209,10 @@ def release_candidates(manifest: dict) -> list[tuple[str, str]]:
 
 
 def discover_latest_release(manifest: dict, timeout: int = 10) -> dict | None:
+    pattern = next((s for s in manifest["sources"] if s.get("source_type") == "release_discovery_pattern"), None)
+    required_terms = [term.lower() for term in (pattern or {}).get("required_title_terms", [])]
+    if not required_terms:
+        return None
     for release, url in release_candidates(manifest):
         try:
             body, headers, status = fetch(url, timeout=timeout)
@@ -215,8 +222,8 @@ def discover_latest_release(manifest: dict, timeout: int = 10) -> dict | None:
             continue
         parser = parse_html(body)
         joined = (parser.title + " " + parser.text[:8000]).lower()
-        # A plain 200/fallback page is not enough; require the actual Recruiting book.
-        if "recruiting" in joined and ("what's new" in joined or "whats new" in joined):
+        # Reject Oracle's generic/fallback pages; require the module's configured terms.
+        if all(term in joined for term in required_terms) and ("what's new" in joined or "whats new" in joined):
             return {
                 "release": release,
                 "url": url,
@@ -482,7 +489,7 @@ def ingest(max_pages: int | None = None) -> int:
             status_doc = {}
     latest = status_doc.get("latest_release")
     if latest and latest.get("url"):
-        dynamic_source = {"source_id":"ORC-RELEASE-LATEST","title":latest.get("title","Latest Oracle Recruiting What's New"),"release":latest.get("release","unknown")}
+        dynamic_source = {"source_id":f"{manifest['module_code']}-RELEASE-LATEST","title":latest.get("title",f"Latest {manifest['module_name']} What's New"),"release":latest.get("release","unknown")}
         # Readiness page links are crawled within their release-specific namespace only.
         try:
             prefix = latest["url"].rstrip("/") + "/"
