@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "module_code": "HDS",
+  "module_name": "Oracle Fusion Cloud Help Desk",
+  "source_policy": {
+    "canonical_host": "docs.oracle.com",
+    "allowed_hosts": [
+      "docs.oracle.com"
+    ],
+    "local_cache_gitignored": true,
+    "public_repository_rule": "Do not commit Oracle manuals, extracted full text, or PDF binaries. Fetch and index locally at runtime."
+  },
+  "sources": [
+    {
+      "source_id": "HDS-IMPL",
+      "title": "Implementing Help Desk",
+      "source_type": "official_implementation_guide",
+      "authority": "oracle_official",
+      "module": "HDS",
+      "html_url": "https://docs.oracle.com/en/cloud/saas/fusion-service/farhd/index.html",
+      "crawl_prefix": "https://docs.oracle.com/en/cloud/saas/fusion-service/farhd/",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle Books catalog guide link verified; document ID F77890-16; 238-page PDF observed; copyright © 2026, Oracle.",
+      "release_binding": "rolling guide; validate against target quarterly release",
+      "document_id": "F77890-16",
+      "pdf_url": "https://docs.oracle.com/en/cloud/saas/fusion-service/farhd/implementing-help-desk.pdf",
+      "expected_pdf_pages": 238
+    },
+    {
+      "source_id": "HDS-USER",
+      "title": "Using Help Desk",
+      "source_type": "official_using_and_operating_guide",
+      "authority": "oracle_official",
+      "module": "HDS",
+      "html_url": "https://docs.oracle.com/en/cloud/saas/fusion-service/faurd/index.html",
+      "crawl_prefix": "https://docs.oracle.com/en/cloud/saas/fusion-service/faurd/",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle Books catalog guide link verified; document ID F77889-07; 80-page PDF observed; copyright © 2023, Oracle.",
+      "release_binding": "rolling guide; validate against target quarterly release",
+      "document_id": "F77889-07",
+      "pdf_url": "https://docs.oracle.com/en/cloud/saas/fusion-service/faurd/using-help-desk.pdf",
+      "expected_pdf_pages": 80
+    },
+    {
+      "source_id": "HDS-READINESS",
+      "title": "Oracle Fusion Service Cloud Readiness / What's New (includes Help Desk 26D)",
+      "source_type": "official_release_catalog",
+      "authority": "oracle_official",
+      "module": "HDS",
+      "html_url": "https://docs.oracle.com/en/cloud/saas/fusion-service/cloud-readiness-whats-new.html",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle readiness/catalog page located and checked; use as source discovery, not proof of tenant feature enablement."
+    },
+    {
+      "source_id": "HDS-BOOKS",
+      "title": "Oracle Fusion Service Cloud Readiness / What's New",
+      "source_type": "official_document_catalog",
+      "authority": "oracle_official",
+      "module": "HDS",
+      "html_url": "https://docs.oracle.com/en/cloud/saas/fusion-service/cloud-readiness-whats-new.html",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle catalog landing page used to validate guide inventory."
+    }
+  ],
+  "indexing": {
+    "html_crawl_same_prefix_only": true,
+    "max_pages_per_source": 1200,
+    "pdf_extraction": "PyMuPDF",
+    "search_backend": "SQLite FTS5",
+    "index_location": ".cache/oracle-hcm/hds/index.sqlite3",
+    "document_cache_location": ".cache/oracle-hcm/hds/documents/",
+    "commit_index_or_downloads": false
+  }
+}
