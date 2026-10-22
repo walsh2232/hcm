@@ -11,8 +11,8 @@ This module has a real source manifest and locally searchable source pipeline. T
 
 | Source | Document ID | PDF pages | Links |
 |---|---|---:|---|
-| Implementing Learning | G34429-04 | 44 | [HTML]( https://docs.oracle.com/en/cloud/saas/talent-management/faiml/implementing-learning/index.html ) · [PDF](https://docs.oracle.com/en/cloud/saas/talent-management/faiml/implementing-learning.pdf) |
-| Using Learning | G34438-02 | 100 | [HTML]( https://docs.oracle.com/en/cloud/saas/talent-management/fatul/using-learning/index.html ) · [PDF](https://docs.oracle.com/en/cloud/saas/talent-management/fatul/using-learning.pdf) |
+| Implementing Learning | G34429-04 | 44 | [HTML](https://docs.oracle.com/en/cloud/saas/talent-management/faiml/index.html) · [PDF](https://docs.oracle.com/en/cloud/saas/talent-management/faiml/implementing-learning.pdf) |
+| Using Learning | G34438-02 | 100 | [HTML](https://docs.oracle.com/en/cloud/saas/talent-management/fatul/index.html) · [PDF](https://docs.oracle.com/en/cloud/saas/talent-management/fatul/using-learning.pdf) |
 | Learning and Development 26D What's New / readiness | — | HTML | [Current release page](https://docs.oracle.com/en/cloud/saas/readiness/hcm/26d/lear-26d/26D-learning-wn-f50703.htm) |
 | Oracle Talent Management - All Books | — | HTML | [Oracle catalog](https://docs.oracle.com/en/cloud/saas/talent-management/books.html) |
 
