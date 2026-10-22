@@ -102,7 +102,8 @@ Suite HR, or a hybrid.**
   extract tooling, quarterly-update process — effectively every artifact produced
   so far.
 - Owner: Product Owner.
-- Expires: 2026-09-30.
+- Expires: 2026-12-31.
+- Renewal reason (2026-10-22): DOC-001 confirms the documentation concerns Oracle Fusion Cloud HCM, but it does not establish the actual target tenant/product topology. Product Owner confirmation remains pending in HCM-011.
 - If wrong: the module index, integration patterns, and data-loading approach are
   wrong for the platform. The project operating system (Kanban, ADRs, registry,
   decision framework) still stands; roughly 1–2 days of rework in
@@ -116,7 +117,8 @@ repository.**
 - Basis: project framing. No Tier A source.
 - Affects: module index, integration inventory boundary, role model.
 - Owner: Product Owner.
-- Expires: 2026-09-30.
+- Expires: 2026-12-31.
+- Renewal reason (2026-10-22): the Recruiting source intake does not establish whether cross-pillar ERP/SCM/EPM scope exists. Product Owner confirmation remains pending in HCM-011.
 - If wrong: cross-pillar integration and shared-security design enter scope; the
   module index and `integrations/` structure expand. Low rework cost, significant
   scope cost.
@@ -132,7 +134,8 @@ must absorb four feature releases per year.**
 - Affects: source currency sweep, regression strategy (`HCM-015`), release
   management (`HCM-025`), quarterly monitoring (`HCM-032`).
 - Owner: Solution Architect.
-- Expires: 2026-09-30.
+- Expires: 2026-12-31.
+- Renewal reason (2026-10-22): guide edition identifiers do not establish the tenant's target quarterly update. Record that release in HCM-011 before claiming release validation.
 - If wrong: the currency and regression cadence are wrong; sweep scheduling
   changes. Roughly half a day of rework, but a wrong cadence silently ages every
   registry entry.
