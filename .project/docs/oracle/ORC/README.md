@@ -14,6 +14,6 @@ The full chapter Markdown, SQLite FTS index, and retrieval chunks are private/lo
 
 ## Source coverage status
 
-- One Recruiting implementation guide has been extracted locally and validated for page markers, topic links, retrieval chunk structure, and search-index integrity.
+- One Recruiting implementation guide has been extracted locally and validated for page markers, topic links, retrieval chunk structure, and search-index integrity. A table-of-contents page map for the 220-page Using Recruiting guide has also been added; its body text is not locally indexed.
 - The current Oracle catalogue identifies companion guides for Recruiting usage, Recruiting Booster, HCM security, security reference, and HCM REST APIs. The registry records those sources, but their complete bodies are not in this local corpus yet.
 - The target tenant's quarterly HCM release and confirmed module scope remain unknown. Do not claim tenant-release validation until the Product Owner resolves `GAP-002`.
