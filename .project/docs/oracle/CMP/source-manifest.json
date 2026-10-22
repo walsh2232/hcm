@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "module_code": "CMP",
+  "module_name": "Oracle Fusion Cloud Compensation",
+  "source_policy": {
+    "canonical_host": "docs.oracle.com",
+    "allowed_hosts": [
+      "docs.oracle.com"
+    ],
+    "local_cache_gitignored": true,
+    "public_repository_rule": "Do not commit Oracle manuals, extracted full text, or PDF binaries. Fetch and index locally at runtime."
+  },
+  "sources": [
+    {
+      "source_id": "CMP-IMPL",
+      "title": "Implementing Compensation",
+      "source_type": "official_implementation_guide",
+      "authority": "oracle_official",
+      "module": "CMP",
+      "html_url": "https://docs.oracle.com/en/cloud/saas/human-resources/faiwc/index.html",
+      "crawl_prefix": "https://docs.oracle.com/en/cloud/saas/human-resources/faiwc/",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle Books catalog guide link verified; document ID G34711-06; 446-page PDF observed; copyright © 2025, Oracle.",
+      "release_binding": "rolling guide; validate against target quarterly release",
+      "document_id": "G34711-06",
+      "pdf_url": "https://docs.oracle.com/en/cloud/saas/human-resources/faiwc/implementing-compensation.pdf",
+      "expected_pdf_pages": 446
+    },
+    {
+      "source_id": "CMP-USER",
+      "title": "Using Compensation",
+      "source_type": "official_using_and_operating_guide",
+      "authority": "oracle_official",
+      "module": "CMP",
+      "html_url": "https://docs.oracle.com/en/cloud/saas/human-resources/facmc/index.html",
+      "crawl_prefix": "https://docs.oracle.com/en/cloud/saas/human-resources/facmc/",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle Books catalog guide link verified; document ID G34739-01; 68-page PDF observed; copyright © 2025, Oracle.",
+      "release_binding": "rolling guide; validate against target quarterly release",
+      "document_id": "G34739-01",
+      "pdf_url": "https://docs.oracle.com/en/cloud/saas/human-resources/facmc/using-compensation.pdf",
+      "expected_pdf_pages": 68
+    },
+    {
+      "source_id": "CMP-26D-CATALOG",
+      "title": "Official HCM release catalog — Compensation What's New",
+      "source_type": "official_release_catalog",
+      "authority": "oracle_official",
+      "module": "CMP",
+      "html_url": "https://docs.oracle.com/en/cloud/saas/readiness/hcm.html",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle readiness/catalog page located and checked; use as source discovery, not proof of tenant feature enablement."
+    },
+    {
+      "source_id": "CMP-BOOKS",
+      "title": "Oracle Human Resources - All Books",
+      "source_type": "official_document_catalog",
+      "authority": "oracle_official",
+      "module": "CMP",
+      "html_url": "https://docs.oracle.com/en/cloud/saas/human-resources/books.html",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle catalog landing page used to validate guide inventory."
+    },
+    {
+      "source_id": "CMP-READINESS-DISCOVERY",
+      "title": "Oracle Fusion Cloud Compensation quarterly-update readiness discovery",
+      "source_type": "release_discovery_pattern",
+      "authority": "oracle_official",
+      "module": "CMP",
+      "discovery_index_url": "https://docs.oracle.com/en/cloud/saas/readiness/hcm.html",
+      "release_slug": "comp",
+      "release_url_template": "https://docs.oracle.com/en/cloud/saas/readiness/hcm/{release}/comp-{release}/",
+      "release_crawl_prefix_template": "https://docs.oracle.com/en/cloud/saas/readiness/hcm/{release}/{slug}-{release}/",
+      "required_title_terms": [
+        "compensation"
+      ],
+      "required": false,
+      "release_candidates": [
+        "27D",
+        "27C",
+        "27B",
+        "27A",
+        "26D",
+        "26C",
+        "26B",
+        "26A"
+      ],
+      "verified_on": "2026-10-22",
+      "verification_basis": "The central Oracle HCM readiness index is the discovery source; module/release candidates are accepted only after checking the live title/body. Where required=false, failure to discover a product-specific page is not fatal."
+    }
+  ],
+  "indexing": {
+    "html_crawl_same_prefix_only": true,
+    "max_pages_per_source": 1200,
+    "pdf_extraction": "PyMuPDF",
+    "search_backend": "SQLite FTS5",
+    "index_location": ".cache/oracle-hcm/cmp/index.sqlite3",
+    "document_cache_location": ".cache/oracle-hcm/cmp/documents/",
+    "commit_index_or_downloads": false
+  }
+}
