@@ -79,6 +79,8 @@ Documentation Specialist.
 
 ## Current state
 
-**No Oracle documentation has been received.** The registry is empty by design,
-not by oversight — see `GAP-001` in [`gaps.md`](gaps.md). Every module design card
-in the backlog is gated on intake batch 1.
+**Initial Recruiting documentation intake is underway.** DOC-001 (*Implementing Recruiting*, G34431-12) has been extracted into a private local corpus with page-level citations and search tooling. DOC-002–DOC-006 are registered as official companion references discovered through Oracle Help Center; their bodies have not yet been extracted into the local index. The complete HCM source set, in-scope modules, and target quarterly release remain unconfirmed. See `GAP-001` and `GAP-002` in [`gaps.md`](gaps.md).
+
+### Private extraction and public repository boundary
+
+The full Markdown corpus, FTS database, and chunk files may contain substantial Oracle-copyrighted text. Keep these in the user's local/private reference workspace; do not commit them to this public repository. Commit reusable ingestion tools, source metadata, compact page/topic maps, and only the short source passages necessary to justify a specific decision. `.local/oracle-docs/` is ignored by git. The source PDF's official URL and SHA-256 belong in the registry/dossier; the binary itself does not.
