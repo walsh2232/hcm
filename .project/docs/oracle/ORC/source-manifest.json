@@ -116,8 +116,8 @@
     "max_pages_per_source": 1200,
     "pdf_extraction": "PyMuPDF",
     "search_backend": "SQLite FTS5",
-    "index_location": ".cache/oracle-hcm/index.sqlite3",
-    "document_cache_location": ".cache/oracle-hcm/documents/",
+    "index_location": ".cache/oracle-hcm/orc/index.sqlite3",
+    "document_cache_location": ".cache/oracle-hcm/orc/documents/",
     "commit_index_or_downloads": false
   }
 }
