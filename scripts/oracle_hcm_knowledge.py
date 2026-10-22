@@ -316,6 +316,8 @@ def refresh(timeout: int = DEFAULT_TIMEOUT) -> int:
         time.sleep(0.15)
 
     latest = discover_latest_release(manifest, timeout=min(timeout, 12))
+    discovery_patterns = [s for s in manifest["sources"] if s.get("source_type") == "release_discovery_pattern"]
+    release_discovery_required = any(s.get("required", True) for s in discovery_patterns)
     previous_latest = None
     if STATUS_PATH.exists():
         try:
@@ -330,6 +332,7 @@ def refresh(timeout: int = DEFAULT_TIMEOUT) -> int:
         "module_code": manifest["module_code"],
         "generated_by": "scripts/oracle_hcm_knowledge.py refresh",
         "latest_release": latest,
+        "release_discovery_required": release_discovery_required,
         "sources": new_items,
         "note": "Metadata and fingerprints only. No guide text or PDF contents are stored in this file."
     }
@@ -338,9 +341,11 @@ def refresh(timeout: int = DEFAULT_TIMEOUT) -> int:
     print(f"Checked {len(new_items)} source URLs; {failures} request(s) failed or returned non-2xx.")
     if latest:
         print(f"Latest verified Recruiting readiness page: {latest['release']} — {latest['url']}")
-    else:
-        print("WARNING: no release-readiness page passed the title/content check.")
+    elif release_discovery_required:
+        print("WARNING: no release-readiness page passed the configured title/content check.")
         failures += 1
+    else:
+        print("No module-specific release page discovered; source URLs and the official catalog were still checked.")
     print(f"Metadata snapshot: {STATUS_PATH.relative_to(ROOT)}")
     return 1 if failures else 0
 
@@ -429,7 +434,7 @@ def crawl_html(conn: sqlite3.Connection, source: dict, seed_url: str, prefix: st
         for href in parser.links:
             candidate = canonical_url(urljoin(url, href))
             parts = urlsplit(candidate)
-            if parts.scheme == "https" and parts.netloc == "docs.oracle.com" and candidate.startswith(prefix) and parts.path.endswith(".html") and candidate not in seen:
+            if parts.scheme == "https" and parts.netloc == "docs.oracle.com" and candidate.startswith(prefix) and parts.path.lower().endswith((".html", ".htm")) and candidate not in seen:
                 queue.append(candidate)
         time.sleep(0.08)
     return pages, chunk_count
