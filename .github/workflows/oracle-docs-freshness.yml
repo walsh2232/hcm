@@ -1,0 +1,60 @@
+name: Oracle HCM documentation freshness
+
+on:
+  schedule:
+    - cron: "0 14 * * 1"
+  workflow_dispatch:
+  push:
+    paths:
+      - ".project/docs/oracle/ORC/source-manifest.json"
+      - "scripts/oracle_hcm_knowledge.py"
+      - ".github/workflows/oracle-docs-freshness.yml"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: oracle-docs-freshness
+  cancel-in-progress: false
+
+jobs:
+  check-sources:
+    name: Check official Oracle Recruiting sources
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate manifest and Python syntax
+        run: |
+          python -m py_compile scripts/oracle_hcm_knowledge.py
+          python -c "import json; p='.project/docs/oracle/ORC/source-manifest.json'; d=json.load(open(p, encoding='utf-8')); assert d['module_code']=='ORC'; assert len(d['sources']) >= 6; print('Manifest valid:', len(d['sources']), 'source entries')"
+
+      - name: Refresh source fingerprints and discover the latest readiness release
+        run: python scripts/oracle_hcm_knowledge.py refresh --timeout 15
+
+      - name: Report source status
+        if: always()
+        run: python scripts/oracle_hcm_knowledge.py status
+
+      - name: Open a review PR if source fingerprints or release changes
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "docs(orc): refresh Oracle source fingerprints"
+          title: "Automated Oracle Recruiting documentation refresh"
+          body: |
+            Automated weekly check of official Oracle Recruiting documentation.
+
+            Review the generated source-status snapshot for URL failures, changed source fingerprints, and the latest release-readiness page discovered by its title/content. This PR contains metadata only; it does not include Oracle manuals or extracted guide text.
+          branch: automation/oracle-docs-freshness
+          delete-branch: true
+          add-paths: |
+            .project/docs/oracle/ORC/source-status.json
