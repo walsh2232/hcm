@@ -50,16 +50,6 @@
       "html_url": "https://docs.oracle.com/en/cloud/saas/fusion-service/cloud-readiness-whats-new.html",
       "verified_on": "2026-10-22",
       "verification_basis": "Official Oracle readiness/catalog page located and checked; use as source discovery, not proof of tenant feature enablement."
-    },
-    {
-      "source_id": "HDS-BOOKS",
-      "title": "Oracle Fusion Service Cloud Readiness / What's New",
-      "source_type": "official_document_catalog",
-      "authority": "oracle_official",
-      "module": "HDS",
-      "html_url": "https://docs.oracle.com/en/cloud/saas/fusion-service/cloud-readiness-whats-new.html",
-      "verified_on": "2026-10-22",
-      "verification_basis": "Official Oracle catalog landing page used to validate guide inventory."
     }
   ],
   "indexing": {
