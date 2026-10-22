@@ -11,8 +11,8 @@ This module has a real source manifest and locally searchable source pipeline. T
 
 | Source | Document ID | PDF pages | Links |
 |---|---|---:|---|
-| Implementing Time and Labor | G34726-01 | 310 | [HTML]( https://docs.oracle.com/en/cloud/saas/human-resources/faitl/implementing-time-and-labor/index.html ) · [PDF](https://docs.oracle.com/en/cloud/saas/human-resources/faitl/implementing-time-and-labor.pdf) |
-| Using Time and Labor | G34743-01 | 54 | [HTML]( https://docs.oracle.com/en/cloud/saas/human-resources/fautl/using-time-and-labor/index.html ) · [PDF](https://docs.oracle.com/en/cloud/saas/human-resources/fautl/using-time-and-labor.pdf) |
+| Implementing Time and Labor | G34726-01 | 310 | [HTML](https://docs.oracle.com/en/cloud/saas/human-resources/faitl/index.html) · [PDF](https://docs.oracle.com/en/cloud/saas/human-resources/faitl/implementing-time-and-labor.pdf) |
+| Using Time and Labor | G34743-01 | 54 | [HTML](https://docs.oracle.com/en/cloud/saas/human-resources/fautl/index.html) · [PDF](https://docs.oracle.com/en/cloud/saas/human-resources/fautl/using-time-and-labor.pdf) |
 | Human Resources 26D What's New / readiness | — | HTML | [Current release page](https://docs.oracle.com/en/cloud/saas/readiness/hcm/26d/tila-26d/26D-time-labor-wn-f51382.htm) |
 | Oracle Human Resources - All Books | — | HTML | [Oracle catalog](https://docs.oracle.com/en/cloud/saas/human-resources/books.html) |
 
