@@ -13,17 +13,14 @@ readings) · `SCOPE` (a business decision, not a documentation question) ·
 ## Open gaps
 
 ### GAP-001 · MISSING · **Critical**
-**No Oracle HCM documentation has been supplied to the project.**
+**The complete Oracle HCM source set and tenant-release binding are not yet established.** Initial Recruiting intake is registered: DOC-001 (*Implementing Recruiting*, G34431-12) has a private local extraction; DOC-002–DOC-006 are catalogued official companion references, but they are not yet searchable in the local corpus. The target quarterly HCM release and final in-scope module list remain unknown.
 
-- Blocks: `HCM-010`, and every module design card in the backlog (`HCM-020`–`HCM-035`).
-- Owner: Product Owner (to supply) / Documentation Specialist (to register).
-- Needed: the document set plus a manifest — title, Oracle document ID or URL,
-  release described, and modules covered, per [`README.md` §Intake](README.md).
-- Working assumption: `ASM-001`, `ASM-003`.
-- Target: next intake batch.
-- If unresolved: no module design decision can meet the validation test in
-  `decision-framework.md` §3. The project can complete scope, environment,
-  success-criteria, and current-state cards and then stops.
+- Blocks: completion of `HCM-010` and module design cards in the backlog (`HCM-020`–`HCM-035`).
+- Owner: Product Owner (scope/target release) and Documentation Specialist (source intake/currency).
+- Needed: confirmed module scope, target quarterly release, and a source manifest for each in-scope module; retrieve/parse companion references as needed.
+- Working assumptions: `ASM-001`, `ASM-002`, `ASM-003` remain provisional and must not substitute for source validation.
+- Target: `HCM-011` and the next intake batch.
+- If unresolved: no module-specific design decision can meet the validation test in `decision-framework.md` §3. Scope, environment, success-criteria, and current-state cards remain separately actionable.
 
 ### GAP-002 · SCOPE · **Critical**
 **In-scope HCM modules, target release, and phasing are undefined.**
