@@ -36,6 +36,32 @@ class ManifestTests(unittest.TestCase):
                 if source.get(key):
                     self.assertEqual(urlsplit(source[key]).hostname, "docs.oracle.com")
 
+    def test_five_additional_module_manifests_use_verified_oracle_sources(self):
+        expected = {
+            "GHR": {"GHR-IMPL": ("G34712-10", 390), "GHR-USER": ("G34740-15", 368)},
+            "ABS": {"ABS-IMPL": ("G34709-01", 192), "ABS-USER": ("G34736-01", 40)},
+            "BEN": {"BEN-IMPL": ("G34710-01", 468), "BEN-USER": ("G34737-01", 150)},
+            "TIM": {"TIM-IMPL": ("G34726-01", 310), "TIM-USER": ("G34743-01", 54)},
+            "LRN": {"LRN-IMPL": ("G34429-04", 44), "LRN-USER": ("G34438-02", 100)},
+        }
+        for module_code, expected_sources in expected.items():
+            path = ROOT / ".project" / "docs" / "oracle" / module_code / "source-manifest.json"
+            manifest = KNOWLEDGE.load_manifest(path)
+            self.assertEqual(manifest["module_code"], module_code)
+            by_id = {source["source_id"]: source for source in manifest["sources"]}
+            self.assertTrue(expected_sources.keys() <= by_id.keys())
+            for source_id, (document_id, page_count) in expected_sources.items():
+                source = by_id[source_id]
+                self.assertEqual(source["document_id"], document_id)
+                self.assertEqual(source["expected_pdf_pages"], page_count)
+                self.assertTrue(source["html_url"].startswith("https://docs.oracle.com/"))
+                self.assertTrue(source["pdf_url"].startswith("https://docs.oracle.com/"))
+            pattern = next(source for source in manifest["sources"] if source.get("source_type") == "release_discovery_pattern")
+            self.assertEqual(pattern["discovery_index_url"], "https://docs.oracle.com/en/cloud/saas/readiness/hcm.html")
+            self.assertTrue(pattern["release_slug"])
+            self.assertTrue(pattern["required_title_terms"])
+            self.assertTrue(manifest["indexing"]["index_location"].startswith(".cache/oracle-hcm/"))
+
     def test_official_release_discovery_includes_verified_26d(self):
         manifest = KNOWLEDGE.load_manifest(ROOT / ".project/docs/oracle/ORC/source-manifest.json")
         candidates = KNOWLEDGE.release_candidates(manifest)
