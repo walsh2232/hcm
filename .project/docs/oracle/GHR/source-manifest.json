@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "module_code": "GHR",
+  "module_name": "Oracle Fusion Cloud Global Human Resources",
+  "source_policy": {
+    "canonical_host": "docs.oracle.com",
+    "allowed_hosts": [
+      "docs.oracle.com"
+    ],
+    "local_cache_gitignored": true,
+    "public_repository_rule": "Do not commit Oracle manuals, extracted full text, or PDF binaries. Fetch and index at execution time into the local cache."
+  },
+  "sources": [
+    {
+      "source_id": "GHR-IMPL",
+      "title": "Implementing Global Human Resources",
+      "document_id": "G34712-10",
+      "source_type": "official_implementation_guide",
+      "authority": "oracle_official",
+      "module": "GHR",
+      "release_binding": "rolling guide; cross-check against target quarterly release",
+      "expected_pdf_pages": 390,
+      "html_url": "https://docs.oracle.com/en/cloud/saas/human-resources/faigh/index.html",
+      "pdf_url": "https://docs.oracle.com/en/cloud/saas/human-resources/faigh/implementing-global-human-resources.pdf",
+      "crawl_prefix": "https://docs.oracle.com/en/cloud/saas/human-resources/faigh/",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle catalog HTML/PDF links opened; document ID and 390-page PDF length observed. Copyright © 2011, 2026."
+    },
+    {
+      "source_id": "GHR-USER",
+      "title": "Using Global Human Resources",
+      "document_id": "G34740-15",
+      "source_type": "official_using_and_operating_guide",
+      "authority": "oracle_official",
+      "module": "GHR",
+      "release_binding": "rolling guide; cross-check against target quarterly release",
+      "expected_pdf_pages": 368,
+      "html_url": "https://docs.oracle.com/en/cloud/saas/human-resources/fawhr/index.html",
+      "pdf_url": "https://docs.oracle.com/en/cloud/saas/human-resources/fawhr/using-global-human-resources.pdf",
+      "crawl_prefix": "https://docs.oracle.com/en/cloud/saas/human-resources/fawhr/",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle catalog HTML/PDF links opened; document ID and 368-page PDF length observed. Copyright © 2011, 2025."
+    },
+    {
+      "source_id": "GHR-26D-WN",
+      "title": "Oracle Fusion Cloud Human Resources 26D What's New",
+      "document_id": "G61073-04",
+      "source_type": "release_readiness_feature_detail",
+      "authority": "oracle_official",
+      "module": "GHR",
+      "release": "26D",
+      "html_url": "https://docs.oracle.com/en/cloud/saas/readiness/hcm/26d/hure-26d/",
+      "crawl_prefix": "https://docs.oracle.com/en/cloud/saas/readiness/hcm/26d/hure-26d/",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle HCM 26D readiness index/feature page located and title/URL checked."
+    },
+    {
+      "source_id": "GHR-BOOKS",
+      "title": "Oracle Human Resources - All Books",
+      "source_type": "official_document_catalog",
+      "authority": "oracle_official",
+      "module": "GHR",
+      "html_url": "https://docs.oracle.com/en/cloud/saas/human-resources/books.html",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle Books catalog used to verify actual implementation/using guide titles and links."
+    },
+    {
+      "source_id": "GHR-READINESS-DISCOVERY",
+      "title": "Oracle Fusion Cloud Global Human Resources quarterly-update readiness discovery",
+      "source_type": "release_discovery_pattern",
+      "authority": "oracle_official",
+      "module": "GHR",
+      "discovery_index_url": "https://docs.oracle.com/en/cloud/saas/readiness/hcm.html",
+      "release_slug": "hure",
+      "release_url_template": "https://docs.oracle.com/en/cloud/saas/readiness/hcm/{release}/hure-{release}/",
+      "release_crawl_prefix_template": "https://docs.oracle.com/en/cloud/saas/readiness/hcm/{release}/{slug}-{release}/",
+      "required_title_terms": [
+        "human resources"
+      ],
+      "release_candidates": [
+        "27D",
+        "27C",
+        "27B",
+        "27A",
+        "26D",
+        "26C",
+        "26B",
+        "26A"
+      ],
+      "verified_on": "2026-10-22",
+      "verification_basis": "The official Human Capital Management readiness catalog contains a 26D HURE release family; automatic discovery must still verify the page title/content before accepting a candidate."
+    }
+  ],
+  "indexing": {
+    "html_crawl_same_prefix_only": true,
+    "max_pages_per_source": 1200,
+    "pdf_extraction": "PyMuPDF",
+    "search_backend": "SQLite FTS5",
+    "index_location": ".cache/oracle-hcm/ghr/index.sqlite3",
+    "document_cache_location": ".cache/oracle-hcm/ghr/documents/",
+    "commit_index_or_downloads": false
+  }
+}
