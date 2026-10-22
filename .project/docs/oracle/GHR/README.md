@@ -11,8 +11,8 @@ This module has a real source manifest and locally searchable source pipeline. T
 
 | Source | Document ID | PDF pages | Links |
 |---|---|---:|---|
-| Implementing Global Human Resources | G34712-10 | 390 | [HTML]( https://docs.oracle.com/en/cloud/saas/human-resources/faigh/implementing-global-human-resources/index.html ) · [PDF](https://docs.oracle.com/en/cloud/saas/human-resources/faigh/implementing-global-human-resources.pdf) |
-| Using Global Human Resources | G34740-15 | 368 | [HTML]( https://docs.oracle.com/en/cloud/saas/human-resources/fawhr/using-global-human-resources/index.html ) · [PDF](https://docs.oracle.com/en/cloud/saas/human-resources/fawhr/using-global-human-resources.pdf) |
+| Implementing Global Human Resources | G34712-10 | 390 | [HTML](https://docs.oracle.com/en/cloud/saas/human-resources/faigh/index.html) · [PDF](https://docs.oracle.com/en/cloud/saas/human-resources/faigh/implementing-global-human-resources.pdf) |
+| Using Global Human Resources | G34740-15 | 368 | [HTML](https://docs.oracle.com/en/cloud/saas/human-resources/fawhr/index.html) · [PDF](https://docs.oracle.com/en/cloud/saas/human-resources/fawhr/using-global-human-resources.pdf) |
 | Human Resources 26D What's New / readiness | G61073-04 | HTML | [Current release page](https://docs.oracle.com/en/cloud/saas/readiness/hcm/26d/hure-26d/) |
 | Oracle Human Resources - All Books | — | HTML | [Oracle catalog](https://docs.oracle.com/en/cloud/saas/human-resources/books.html) |
 
