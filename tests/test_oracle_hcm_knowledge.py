@@ -36,31 +36,53 @@ class ManifestTests(unittest.TestCase):
                 if source.get(key):
                     self.assertEqual(urlsplit(source[key]).hostname, "docs.oracle.com")
 
-    def test_five_additional_module_manifests_use_verified_oracle_sources(self):
+    def test_all_populated_module_manifests_use_real_oracle_sources(self):
         expected = {
             "GHR": {"GHR-IMPL": ("G34712-10", 390), "GHR-USER": ("G34740-15", 368)},
             "ABS": {"ABS-IMPL": ("G34709-01", 192), "ABS-USER": ("G34736-01", 40)},
             "BEN": {"BEN-IMPL": ("G34710-01", 468), "BEN-USER": ("G34737-01", 150)},
             "TIM": {"TIM-IMPL": ("G34726-01", 310), "TIM-USER": ("G34743-01", 54)},
             "LRN": {"LRN-IMPL": ("G34429-04", 44), "LRN-USER": ("G34438-02", 100)},
+            "CMP": {"CMP-IMPL": ("G34711-06", 446), "CMP-USER": ("G34739-01", 68)},
+            "PAY": {"PAY-IMPL": ("G34713-09", 484), "PAY-USER": ("G34741-02", 26)},
+            "JRN": {"JRN-IMPL-USER": ("G34729-11", 204)},
+            "HDS": {"HDS-IMPL": ("F77890-16", 238), "HDS-USER": ("F77889-07", 80)},
+            "HSE": {"HSE-USER": ("G34746-03", 36)},
+            "TAL": {
+                "TAL-BASE-IMPL": ("G34432-02", 276),
+                "TAL-GOAL-IMPL": ("G34428-01", 76),
+                "TAL-PERF-IMPL": ("G34430-04", 188),
+                "TAL-REVIEW-IMPL": ("G34433-01", 122),
+            },
+            "RPT": {"RPT-ADMIN-HCM": ("G34671-01", 120)},
         }
         for module_code, expected_sources in expected.items():
             path = ROOT / ".project" / "docs" / "oracle" / module_code / "source-manifest.json"
             manifest = KNOWLEDGE.load_manifest(path)
             self.assertEqual(manifest["module_code"], module_code)
             by_id = {source["source_id"]: source for source in manifest["sources"]}
-            self.assertTrue(expected_sources.keys() <= by_id.keys())
+            self.assertTrue(expected_sources.keys() <= by_id.keys(), f"Missing sources in {module_code}")
             for source_id, (document_id, page_count) in expected_sources.items():
                 source = by_id[source_id]
                 self.assertEqual(source["document_id"], document_id)
                 self.assertEqual(source["expected_pdf_pages"], page_count)
                 self.assertTrue(source["html_url"].startswith("https://docs.oracle.com/"))
-                self.assertTrue(source["pdf_url"].startswith("https://docs.oracle.com/"))
-            pattern = next(source for source in manifest["sources"] if source.get("source_type") == "release_discovery_pattern")
-            self.assertEqual(pattern["discovery_index_url"], "https://docs.oracle.com/en/cloud/saas/readiness/hcm.html")
-            self.assertTrue(pattern["release_slug"])
-            self.assertTrue(pattern["required_title_terms"])
+                self.assertTrue(source.get("crawl_prefix", source["html_url"]).startswith("https://docs.oracle.com/"))
+            all_ids = [source["source_id"] for source in manifest["sources"]]
+            self.assertEqual(len(all_ids), len(set(all_ids)), f"Duplicate source ID in {module_code}")
+            for source in manifest["sources"]:
+                for key in ("html_url", "pdf_url", "discovery_index_url"):
+                    if source.get(key):
+                        self.assertEqual(urlsplit(source[key]).hostname, "docs.oracle.com")
+            pattern = next((source for source in manifest["sources"] if source.get("source_type") == "release_discovery_pattern"), None)
+            if pattern:
+                self.assertEqual(pattern["discovery_index_url"], "https://docs.oracle.com/en/cloud/saas/readiness/hcm.html")
+                self.assertTrue(pattern["release_slug"])
+                self.assertTrue(pattern["required_title_terms"])
             self.assertTrue(manifest["indexing"]["index_location"].startswith(".cache/oracle-hcm/"))
+        canada = KNOWLEDGE.load_manifest(ROOT / ".project/docs/oracle/PAY/source-manifest.json")
+        pay_canada = next(source for source in canada["sources"] if source["source_id"] == "PAY-CA")
+        self.assertEqual(pay_canada["region"], "Canada")
 
     def test_official_release_discovery_includes_verified_26d(self):
         manifest = KNOWLEDGE.load_manifest(ROOT / ".project/docs/oracle/ORC/source-manifest.json")
