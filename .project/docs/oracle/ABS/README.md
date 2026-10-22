@@ -11,8 +11,8 @@ This module has a real source manifest and locally searchable source pipeline. T
 
 | Source | Document ID | PDF pages | Links |
 |---|---|---:|---|
-| Implementing Absence Management | G34709-01 | 192 | [HTML]( https://docs.oracle.com/en/cloud/saas/human-resources/faiam/implementing-absence-management/index.html ) · [PDF](https://docs.oracle.com/en/cloud/saas/human-resources/faiam/implementing-absence-management.pdf) |
-| Using Absence Management | G34736-01 | 40 | [HTML]( https://docs.oracle.com/en/cloud/saas/human-resources/fauam/using-absence-management/index.html ) · [PDF](https://docs.oracle.com/en/cloud/saas/human-resources/fauam/using-absence-management.pdf) |
+| Implementing Absence Management | G34709-01 | 192 | [HTML](https://docs.oracle.com/en/cloud/saas/human-resources/faiam/index.html) · [PDF](https://docs.oracle.com/en/cloud/saas/human-resources/faiam/implementing-absence-management.pdf) |
+| Using Absence Management | G34736-01 | 40 | [HTML](https://docs.oracle.com/en/cloud/saas/human-resources/fauam/index.html) · [PDF](https://docs.oracle.com/en/cloud/saas/human-resources/fauam/using-absence-management.pdf) |
 | Human Resources 26D What's New / readiness | — | HTML | [Current release page](https://docs.oracle.com/en/cloud/saas/readiness/hcm/26d/amg-26d/26D-absence-mgmt-wn-t78665.htm) |
 | Oracle Human Resources - All Books | — | HTML | [Oracle catalog](https://docs.oracle.com/en/cloud/saas/human-resources/books.html) |
 
