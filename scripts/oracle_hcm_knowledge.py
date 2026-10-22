@@ -213,27 +213,57 @@ def discover_latest_release(manifest: dict, timeout: int = 10) -> dict | None:
     required_terms = [term.lower() for term in (pattern or {}).get("required_title_terms", [])]
     if not required_terms:
         return None
-    for release, url in release_candidates(manifest):
+
+    # Prefer Oracle's central readiness index over guessing a module-specific path.
+    index_links: list[str] = []
+    discovery_index = (pattern or {}).get("discovery_index_url")
+    slug = (pattern or {}).get("release_slug")
+    if discovery_index and slug:
         try:
-            body, headers, status = fetch(url, timeout=timeout)
+            index_body, index_headers, index_status = fetch(discovery_index, timeout=timeout)
+            if 200 <= index_status < 300:
+                index_parser = parse_html(index_body)
+                index_links = [
+                    canonical_url(urljoin(discovery_index, link))
+                    for link in index_parser.links
+                    if urlsplit(urljoin(discovery_index, link)).hostname == "docs.oracle.com"
+                ]
         except RuntimeError:
-            continue
-        if status < 200 or status >= 300:
-            continue
-        parser = parse_html(body)
-        joined = (parser.title + " " + parser.text[:8000]).lower()
-        # Reject Oracle's generic/fallback pages; require the module's configured terms.
-        if all(term in joined for term in required_terms) and ("what's new" in joined or "whats new" in joined):
-            return {
-                "release": release,
-                "url": url,
-                "title": parser.title or f"Oracle Fusion Cloud Recruiting {release} What's New",
-                "http_status": status,
-                "sha256": hashlib.sha256(body).hexdigest(),
-                "content_type": headers.get("Content-Type", ""),
-                "content_length": len(body)
-            }
-        time.sleep(0.12)
+            index_links = []
+
+    for release, fallback_url in release_candidates(manifest):
+        lower = release.lower()
+        candidates = [
+            link for link in index_links
+            if f"/{lower}/" in urlsplit(link).path.lower()
+            and f"/{slug}-{lower}/" in urlsplit(link).path.lower()
+        ]
+        if not candidates:
+            candidates = [fallback_url]
+        for url in candidates:
+            try:
+                body, headers, status = fetch(url, timeout=timeout)
+            except RuntimeError:
+                continue
+            if status < 200 or status >= 300:
+                continue
+            parser = parse_html(body)
+            joined = (parser.title + " " + parser.text[:8000]).lower()
+            # Reject Oracle's generic/fallback pages; require module term and release marker.
+            if all(term in joined for term in required_terms) and ("what's new" in joined or "whats new" in joined):
+                prefix_template = (pattern or {}).get("release_crawl_prefix_template")
+                crawl_prefix = prefix_template.format(release=lower, slug=slug) if prefix_template else None
+                return {
+                    "release": release,
+                    "url": url,
+                    "crawl_prefix": crawl_prefix,
+                    "title": parser.title or f"{manifest['module_name']} {release} What's New",
+                    "http_status": status,
+                    "sha256": hashlib.sha256(body).hexdigest(),
+                    "content_type": headers.get("Content-Type", ""),
+                    "content_length": len(body)
+                }
+            time.sleep(0.08)
     return None
 
 
@@ -492,7 +522,7 @@ def ingest(max_pages: int | None = None) -> int:
         dynamic_source = {"source_id":f"{manifest['module_code']}-RELEASE-LATEST","title":latest.get("title",f"Latest {manifest['module_name']} What's New"),"release":latest.get("release","unknown")}
         # Readiness page links are crawled within their release-specific namespace only.
         try:
-            prefix = latest["url"].rstrip("/") + "/"
+            prefix = latest.get("crawl_prefix") or latest["url"].rstrip("/") + "/"
             pages, count = crawl_html(conn, dynamic_source, latest["url"], prefix, max_pages or 1200)
             pages_total += pages
             total_chunks += count
