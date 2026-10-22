@@ -22,11 +22,13 @@ from urllib.parse import urljoin, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
-MANIFEST_PATH = ROOT / ".project/docs/oracle/ORC/source-manifest.json"
-CACHE_DIR = ROOT / ".cache/oracle-hcm"
+DEFAULT_MANIFEST_PATH = ROOT / ".project/docs/oracle/ORC/source-manifest.json"
+MANIFEST_PATH = DEFAULT_MANIFEST_PATH
+CACHE_ROOT = ROOT / ".cache/oracle-hcm"
+CACHE_DIR = CACHE_ROOT / "orc"
 DOCUMENTS_DIR = CACHE_DIR / "documents"
 DB_PATH = CACHE_DIR / "index.sqlite3"
-STATUS_PATH = ROOT / ".project/docs/oracle/ORC/source-status.json"
+STATUS_PATH = MANIFEST_PATH.parent / "source-status.json"
 USER_AGENT = "oracle-hcm-knowledge-index/1.0 (official-document metadata and local search)"
 DEFAULT_TIMEOUT = 25
 
@@ -39,16 +41,31 @@ def today() -> str:
     return datetime.now(timezone.utc).date().isoformat()
 
 
-def load_manifest(path: Path = MANIFEST_PATH) -> dict:
-    data = json.loads(path.read_text(encoding="utf-8"))
+def load_manifest(path: Path | None = None) -> dict:
+    actual_path = path or MANIFEST_PATH
+    data = json.loads(actual_path.read_text(encoding="utf-8"))
     if data.get("schema_version") != 1 or not data.get("module_code"):
-        raise ValueError(f"Unsupported or incomplete source manifest: {path}")
+        raise ValueError(f"Unsupported or incomplete source manifest: {actual_path}")
     for source in data.get("sources", []):
         for key in ("html_url", "pdf_url"):
             url = source.get(key)
             if url and urlsplit(url).hostname not in data["source_policy"]["allowed_hosts"]:
                 raise ValueError(f"Disallowed source host in manifest: {url}")
     return data
+
+
+def configure_paths(manifest_path: Path) -> None:
+    """Select a module manifest and isolate its cache, index, and status snapshot."""
+    global MANIFEST_PATH, CACHE_DIR, DOCUMENTS_DIR, DB_PATH, STATUS_PATH
+    MANIFEST_PATH = manifest_path if manifest_path.is_absolute() else ROOT / manifest_path
+    data = load_manifest(MANIFEST_PATH)
+    module_key = re.sub(r"[^a-z0-9_-]", "", data["module_code"].lower())
+    if not module_key:
+        raise ValueError("Manifest module_code must contain letters or digits.")
+    CACHE_DIR = CACHE_ROOT / module_key
+    DOCUMENTS_DIR = CACHE_DIR / "documents"
+    DB_PATH = CACHE_DIR / "index.sqlite3"
+    STATUS_PATH = MANIFEST_PATH.parent / "source-status.json"
 
 
 class PageParser(HTMLParser):
@@ -544,16 +561,21 @@ def search(query: str, limit: int = 8) -> int:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Retrieve official Oracle HCM module documentation locally.")
     subparsers = parser.add_subparsers(dest="command", required=True)
-    subparsers.add_parser("status", help="show manifest, local index, and latest URL status")
+    p_status = subparsers.add_parser("status", help="show manifest, local index, and latest URL status")
+    p_status.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST_PATH, help="path to a module source-manifest.json")
     p_refresh = subparsers.add_parser("refresh", help="check Oracle sources and update the metadata-only status snapshot")
     p_refresh.add_argument("--timeout", type=int, default=DEFAULT_TIMEOUT)
+    p_refresh.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST_PATH, help="path to a module source-manifest.json")
     p_ingest = subparsers.add_parser("ingest", help="download/extract official sources into the local index")
     p_ingest.add_argument("--max-pages", type=int, default=None, help="per-source HTML crawl cap; lower values are useful for a quick first run")
+    p_ingest.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST_PATH, help="path to a module source-manifest.json")
     p_search = subparsers.add_parser("search", help="search the local full-text index")
     p_search.add_argument("query", help="SQLite FTS5 query")
     p_search.add_argument("--limit", type=int, default=8)
+    p_search.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST_PATH, help="path to a module source-manifest.json")
     args = parser.parse_args()
     try:
+        configure_paths(args.manifest)
         if args.command == "status":
             return show_status()
         if args.command == "refresh":
