@@ -11,8 +11,8 @@ This module has a real source manifest and locally searchable source pipeline. T
 
 | Source | Document ID | PDF pages | Links |
 |---|---|---:|---|
-| Implementing Benefits | G34710-01 | 468 | [HTML]( https://docs.oracle.com/en/cloud/saas/human-resources/faibf/implementing-benefits/index.html ) · [PDF](https://docs.oracle.com/en/cloud/saas/human-resources/faibf/implementing-benefits.pdf) |
-| Using Benefits | G34737-01 | 150 | [HTML]( https://docs.oracle.com/en/cloud/saas/human-resources/facmb/using-benefits/index.html ) · [PDF](https://docs.oracle.com/en/cloud/saas/human-resources/facmb/using-benefits.pdf) |
+| Implementing Benefits | G34710-01 | 468 | [HTML](https://docs.oracle.com/en/cloud/saas/human-resources/faibf/index.html) · [PDF](https://docs.oracle.com/en/cloud/saas/human-resources/faibf/implementing-benefits.pdf) |
+| Using Benefits | G34737-01 | 150 | [HTML](https://docs.oracle.com/en/cloud/saas/human-resources/facmb/index.html) · [PDF](https://docs.oracle.com/en/cloud/saas/human-resources/facmb/using-benefits.pdf) |
 | Human Resources 26D What's New / readiness | — | HTML | [Current release page](https://docs.oracle.com/en/cloud/saas/readiness/hcm/26d/benf-26d/26D-benefits-wn-f51263.htm) |
 | Oracle Human Resources - All Books | — | HTML | [Oracle catalog](https://docs.oracle.com/en/cloud/saas/human-resources/books.html) |
 
