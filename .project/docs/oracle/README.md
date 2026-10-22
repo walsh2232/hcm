@@ -54,4 +54,6 @@ Downloaded manuals and extracted full text remain local and Git-ignored. This re
 
 ## Current state
 
-ORC has verified official guide URLs and release-readiness entries registered. The first source freshness workflow is scheduled weekly. Running the local ingest command is required to create a searchable full-text index on a workstation. Other modules remain to be inventoried from their actual Oracle source catalogs; see GAP-001 and GAP-002.
+Six module sources have been registered: ORC (Recruiting), GHR (Global Human Resources), ABS (Absence Management), BEN (Benefits), TIM (Time and Labor), and LRN (Learning). Each has official guide URLs, source-age caveats, 26D readiness evidence, and a source manifest. The weekly GitHub Actions source-freshness workflow checks all module manifests.
+
+The full-text index is deliberately built locally. For each module, run refresh and ingest; the GitHub status workflow does not commit or publish the manual text or full index. Other areas—Payroll, Compensation, Talent Management, Journeys, Help Desk, Security, Integrations and Analytics—remain to be researched and registered from their actual Oracle catalogs. See GAP-001 and GAP-002.
