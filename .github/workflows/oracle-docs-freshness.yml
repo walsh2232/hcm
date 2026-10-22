@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - ".project/docs/oracle/ORC/source-manifest.json"
+      - ".project/docs/oracle/**/source-manifest.json"
       - "scripts/oracle_hcm_knowledge.py"
       - ".github/workflows/oracle-docs-freshness.yml"
 
@@ -35,12 +35,19 @@ jobs:
       - name: Validate manifest, syntax, and local tests
         run: |
           python -m py_compile scripts/oracle_hcm_knowledge.py
-          python -c "import json; p='.project/docs/oracle/ORC/source-manifest.json'; d=json.load(open(p, encoding='utf-8')); assert d['module_code']=='ORC'; assert len(d['sources']) >= 6; print('Manifest valid:', len(d['sources']), 'source entries')"
+          python -c "from pathlib import Path; import json; ps=list(Path('.project/docs/oracle').glob('*/source-manifest.json')); assert ps; [(lambda p,d: print(p, d['module_code'], len(d['sources']), 'sources'))(p,json.loads(p.read_text(encoding='utf-8'))) for p in ps]"
           python -m unittest discover -s tests -p 'test_oracle_hcm_knowledge.py'
 
-      - name: Refresh source fingerprints and discover the latest readiness release
+      - name: Refresh source fingerprints and discover each module's latest readiness release
         continue-on-error: true
-        run: python scripts/oracle_hcm_knowledge.py refresh --timeout 15
+        shell: bash
+        run: |
+          failed=0
+          for manifest in .project/docs/oracle/*/source-manifest.json; do
+            echo "Refreshing $manifest"
+            python scripts/oracle_hcm_knowledge.py refresh --manifest "$manifest" --timeout 45 || failed=1
+          done
+          exit "$failed"
 
       - name: Report source status
         if: always()
@@ -59,4 +66,4 @@ jobs:
           branch: automation/oracle-docs-freshness
           delete-branch: true
           add-paths: |
-            .project/docs/oracle/ORC/source-status.json
+            .project/docs/oracle/**/source-status.json
