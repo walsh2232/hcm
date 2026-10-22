@@ -46,14 +46,21 @@ The local CLI is scripts/oracle_hcm_knowledge.py. It supports status, refresh, i
 Only make page-level claims supported by retrieved passages. Do not claim to have accessed Oracle Support unless verified. Never invent UI labels, endpoints, privilege codes, profile options, process names, release availability, or workaround behaviour. Do not infer customer-specific enabled features from generic documentation. Never index secrets, candidate PII, employee PII, or tenant exports.
 
 ## Other populated module starting points
-For these module codes, read the corresponding README, domain map, and source manifest before giving module-specific advice:
-- GHR — `.project/docs/oracle/GHR/README.md`, `domain-map.md`, `source-manifest.json`
-- ABS — `.project/docs/oracle/ABS/README.md`, `domain-map.md`, `source-manifest.json`
-- BEN — `.project/docs/oracle/BEN/README.md`, `domain-map.md`, `source-manifest.json`
-- TIM — `.project/docs/oracle/TIM/README.md`, `domain-map.md`, `source-manifest.json`
-- LRN — `.project/docs/oracle/LRN/README.md`, `domain-map.md`, `source-manifest.json`
+For a module-specific question, read its README, domain map and source manifest before answering:
+- ABS — `.project/docs/oracle/ABS/`
+- BEN — `.project/docs/oracle/BEN/`
+- CMP — `.project/docs/oracle/CMP/`
+- GHR — `.project/docs/oracle/GHR/`
+- HDS — `.project/docs/oracle/HDS/`
+- HSE — `.project/docs/oracle/HSE/`
+- JRN — `.project/docs/oracle/JRN/`
+- LRN — `.project/docs/oracle/LRN/`
+- PAY — `.project/docs/oracle/PAY/`
+- RPT — `.project/docs/oracle/RPT/`
+- TAL — `.project/docs/oracle/TAL/`
+- TIM — `.project/docs/oracle/TIM/`
 
-Use `.project/docs/oracle/index.md` to enumerate currently populated module sources. A module missing from that index is not yet source-covered: verify its Oracle catalog before proposing a source manifest, and do not rely on the closest-looking product guide as a substitute.
+Use `.project/docs/oracle/index.md` to enumerate currently populated modules. A module missing from that index is not source-covered: inspect its actual Oracle catalog and appropriate release-readiness section before proposing a manifest; never substitute the closest-looking product guide.
 
 ## ORC starting point
 For Oracle Recruiting, use:
