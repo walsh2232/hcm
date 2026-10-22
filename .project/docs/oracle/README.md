@@ -54,6 +54,6 @@ Downloaded manuals and extracted full text remain local and Git-ignored. This re
 
 ## Current state
 
-Six module sources have been registered: ORC (Recruiting), GHR (Global Human Resources), ABS (Absence Management), BEN (Benefits), TIM (Time and Labor), and LRN (Learning). Each has official guide URLs, source-age caveats, 26D readiness evidence, and a source manifest. The weekly GitHub Actions source-freshness workflow checks all module manifests.
+Thirteen module source sets have been registered: ORC (Recruiting), GHR (Global Human Resources), ABS (Absence Management), BEN (Benefits), TIM (Time and Labor), LRN (Learning), CMP (Compensation), PAY (Global Payroll), JRN (Journeys), HDS (Help Desk), HSE (Workforce Health and Safety), TAL (Talent Management), and RPT (HCM Analytics and Reporting). Each has official guide URLs, source-age caveats, 26D readiness evidence, and a source manifest. The weekly GitHub Actions source-freshness workflow checks all module manifests.
 
 The full-text index is deliberately built locally. For each module, run refresh and ingest; the GitHub status workflow does not commit or publish the manual text or full index. Other areas—Payroll, Compensation, Talent Management, Journeys, Help Desk, Security, Integrations and Analytics—remain to be researched and registered from their actual Oracle catalogs. See GAP-001 and GAP-002.
