@@ -44,6 +44,14 @@ Ambiguity: <GAP-### if raised, otherwise "none">
 5. **Re-validate every release.** Update `Validated against:` during the source
    currency sweep, or mark the entry `STALE`.
 
+## Module skill and retrieval index
+
+The reusable agent instructions live in the repository-level Oracle HCM Expert skill. The first populated module source map is ORC (Recruiting), under the ORC directory. Each further module must use real Oracle catalog pages and a verified manifest; do not populate it with guessed URLs or illustrative source rows.
+
+The local retrieval CLI accepts a module manifest path for all commands. Select the correct manifest with the --manifest option, then run status, refresh, ingest, or search. Each module gets an isolated local index under .cache/oracle-hcm/<module-code>/ and a metadata-only source-status.json beside its manifest.
+
+Downloaded manuals and extracted full text remain local and Git-ignored. This repository is public, so do not commit Oracle PDF files or wholesale guide extracts.
+
 ## Current state
 
-Empty — no Oracle documentation has been received (`GAP-001`).
+ORC has verified official guide URLs and release-readiness entries registered. The first source freshness workflow is scheduled weekly. Running the local ingest command is required to create a searchable full-text index on a workstation. Other modules remain to be inventoried from their actual Oracle source catalogs; see GAP-001 and GAP-002.
