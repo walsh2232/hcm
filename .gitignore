@@ -21,11 +21,16 @@ data/**/*.zip
 !**/templates/*.csv
 
 # ---- Downloaded Oracle documentation ------------------------------------
-# Binary Oracle PDFs are referenced by the source registry, not stored in
-# git. See .project/docs/README.md for the storage contract.
+# Binary Oracle PDFs and complete derived corpora are referenced by the source
+# registry, not stored in git. See .project/docs/README.md for the storage contract.
 .project/docs/oracle/**/*.pdf
 .project/docs/oracle/**/*.docx
 .project/docs/oracle/**/*.xlsx
+.local/oracle-docs/
+.local/oracle-search/
+**/search_index.sqlite
+**/retrieval_chunks*.jsonl
+**/full-text.md
 
 # ---- Tooling ------------------------------------------------------------
 __pycache__/

@@ -45,13 +45,10 @@ _WIP limit 6 · currently 5_
 
 _WIP limit 2 per role · currently 1 (DOC)_
 
-- HCM-010 [DOC] 🚧 **BLOCKED** Intake batch 1 — receive, register, and index the Oracle HCM documentation set · GAP-001 · ~2d
-  - Blocker: no Oracle documentation has been supplied yet. The registry, intake
-    process, and gap log are in place and empty. Blocks HCM-011 and every
-    module design card in Backlog.
-  - Needed from Product Owner: the document manifest described in
-    [`docs/README.md` §Intake](docs/README.md).
-
+- HCM-010 [DOC] Intake batch 1 — receive, register, and index the Oracle HCM documentation set · DOC-001–DOC-006 · GAP-001 · ~2d
+  - Progress: DOC-001 (*Implementing Recruiting*, G34431-12) has been hashed, extracted, indexed, and smoke-tested in a private local corpus. DOC-002–DOC-006 have been catalogued from the official Oracle Help Center.
+  - Remaining: confirm in-scope modules and target quarterly release; extract companion source content required for those modules; assess coverage and source currency.
+  - The card remains in progress because the complete project source set and release binding are not established yet.
 ## In Review
 
 _WIP limit 6 · currently 6 — Sprint 000 inception batch, single pull request_

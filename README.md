@@ -3,10 +3,12 @@
 Repository for the design, configuration, extension, and integration work of an
 Oracle Fusion Cloud HCM implementation.
 
-> **Status: inception.** The project operating system (Kanban, ADRs, documentation
-> registry, decision framework) is in place. No module design work has started —
-> it is blocked on the Oracle documentation set and scope decisions listed in
-> [`.project/docs/gaps.md`](.project/docs/gaps.md).
+> **Status: inception / documentation intake started.** The first Recruiting source
+> (*Implementing Recruiting*, guide edition G34431-12) has been received, fingerprinted,
+> and indexed locally. Official companion sources are catalogued in the registry.
+> Project-wide design remains gated by unresolved module scope and target quarterly
+> release in [`.project/docs/gaps.md`](.project/docs/gaps.md). The full derived text
+> corpus and source PDFs are intentionally not committed to this public repository.
 
 ## Start here
 

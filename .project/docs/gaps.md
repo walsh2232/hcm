@@ -13,17 +13,14 @@ readings) · `SCOPE` (a business decision, not a documentation question) ·
 ## Open gaps
 
 ### GAP-001 · MISSING · **Critical**
-**No Oracle HCM documentation has been supplied to the project.**
+**The complete Oracle HCM source set and tenant-release binding are not yet established.** Initial Recruiting intake is registered: DOC-001 (*Implementing Recruiting*, G34431-12) has a private local extraction; DOC-002–DOC-006 are catalogued official companion references, but they are not yet searchable in the local corpus. The target quarterly HCM release and final in-scope module list remain unknown.
 
-- Blocks: `HCM-010`, and every module design card in the backlog (`HCM-020`–`HCM-035`).
-- Owner: Product Owner (to supply) / Documentation Specialist (to register).
-- Needed: the document set plus a manifest — title, Oracle document ID or URL,
-  release described, and modules covered, per [`README.md` §Intake](README.md).
-- Working assumption: `ASM-001`, `ASM-003`.
-- Target: next intake batch.
-- If unresolved: no module design decision can meet the validation test in
-  `decision-framework.md` §3. The project can complete scope, environment,
-  success-criteria, and current-state cards and then stops.
+- Blocks: completion of `HCM-010` and module design cards in the backlog (`HCM-020`–`HCM-035`).
+- Owner: Product Owner (scope/target release) and Documentation Specialist (source intake/currency).
+- Needed: confirmed module scope, target quarterly release, and a source manifest for each in-scope module; retrieve/parse companion references as needed.
+- Working assumptions: `ASM-001`, `ASM-002`, `ASM-003` remain provisional and must not substitute for source validation.
+- Target: `HCM-011` and the next intake batch.
+- If unresolved: no module-specific design decision can meet the validation test in `decision-framework.md` §3. Scope, environment, success-criteria, and current-state cards remain separately actionable.
 
 ### GAP-002 · SCOPE · **Critical**
 **In-scope HCM modules, target release, and phasing are undefined.**
@@ -105,7 +102,8 @@ Suite HR, or a hybrid.**
   extract tooling, quarterly-update process — effectively every artifact produced
   so far.
 - Owner: Product Owner.
-- Expires: 2026-09-30.
+- Expires: 2026-12-31.
+- Renewal reason (2026-10-22): DOC-001 confirms the documentation concerns Oracle Fusion Cloud HCM, but it does not establish the actual target tenant/product topology. Product Owner confirmation remains pending in HCM-011.
 - If wrong: the module index, integration patterns, and data-loading approach are
   wrong for the platform. The project operating system (Kanban, ADRs, registry,
   decision framework) still stands; roughly 1–2 days of rework in
@@ -119,7 +117,8 @@ repository.**
 - Basis: project framing. No Tier A source.
 - Affects: module index, integration inventory boundary, role model.
 - Owner: Product Owner.
-- Expires: 2026-09-30.
+- Expires: 2026-12-31.
+- Renewal reason (2026-10-22): the Recruiting source intake does not establish whether cross-pillar ERP/SCM/EPM scope exists. Product Owner confirmation remains pending in HCM-011.
 - If wrong: cross-pillar integration and shared-security design enter scope; the
   module index and `integrations/` structure expand. Low rework cost, significant
   scope cost.
@@ -135,7 +134,8 @@ must absorb four feature releases per year.**
 - Affects: source currency sweep, regression strategy (`HCM-015`), release
   management (`HCM-025`), quarterly monitoring (`HCM-032`).
 - Owner: Solution Architect.
-- Expires: 2026-09-30.
+- Expires: 2026-12-31.
+- Renewal reason (2026-10-22): guide edition identifiers do not establish the tenant's target quarterly update. Record that release in HCM-011 before claiming release validation.
 - If wrong: the currency and regression cadence are wrong; sweep scheduling
   changes. Roughly half a day of rework, but a wrong cadence silently ages every
   registry entry.
