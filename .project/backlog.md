@@ -112,26 +112,30 @@ in GitHub Actions on every push and pull request. Source: `N/A — internal proc
 
 ### HCM-010
 **Intake batch 1 — receive, register, and index the Oracle HCM documentation set**
-· `[DOC]` · ~2d · In Progress · 🚧 **BLOCKED**
+· `[DOC]` · ~2d · In Progress
 
-Outcome: the Oracle documentation supplied for this project is registered,
-tiered, release-bound, and indexed, so that every downstream card can cite it.
+Outcome: the official Oracle sources needed for the in-scope HCM modules are
+registered, edition-bound, retrievable, and indexed, so downstream work can cite
+the source and prove which edition supports a claim.
 
-Depends on: the Product Owner supplying the document set and manifest.
-Blocker: `GAP-001` — no documentation received. This blocks every module design
-card in the backlog, because none of them can meet the Definition of Ready
-without a backing `DOC-###`.
+Current intake: DOC-001 (*Implementing Recruiting*, G34431-12) is indexed in a
+private local corpus with 35 chapter files, a topic index, 746 retrieval chunks,
+a SQLite FTS5 search index, and page-level citations. DOC-002–DOC-006 are
+catalogued official companion references but are not yet fully ingested locally.
 
 Acceptance:
-- Each document registered in `docs/source-registry.md` with title, Oracle
-  document ID, release, tier, retrieval date, owner, and storage location.
-- Each document indexed by module code in `docs/modules/README.md`.
-- Coverage assessed against the in-scope module list; every uncovered module
+- Each selected source is registered with title, Oracle identifier/URL, edition,
+  tier, retrieval date, location, and target-release validation state.
+- Each in-scope module is indexed in `docs/modules/README.md`; missing coverage
   raises a `MISSING` gap.
-- Conflicts between supplied documents raised as `AMBIGUOUS` gaps.
-- Intake summary recorded using `templates/doc-intake.md`.
+- Extracted sources have a manifest, checksum, physical-page traceability, and
+  validated search/retrieval output.
+- Source conflicts are raised as `AMBIGUOUS` gaps rather than silently reconciled.
+- Full derived text stays out of the public repository; scripts, metadata, compact
+  source maps, and targeted evidence extracts may be committed.
+- Intake summary is recorded using `templates/doc-intake.md`.
 
-Source: process defined in `ADR-0002`.
+Source: intake process defined in ADR-0002; Oracle guide DOC-001 edition G34431-12.
 
 ### HCM-011
 **Confirm in-scope HCM modules, target release, and phasing** · `[PO]` · ~1d · Ready
