@@ -9,15 +9,15 @@ and registry entries. Use the code, not the marketing name.
 
 | Code | Module | Scope | Tier A/B sources | Owner |
 | --- | --- | --- | --- | --- |
-| `GHR` | Global Human Resources (Core HR, workforce structures, person & employment) | TBC | 0 | — |
+| `GHR` | Global Human Resources (Core HR, workforce structures, person & employment) | TBC | 4 | Documentation Specialist |
 | `PAY` | Payroll (elements, balances, payroll flows, costing) | TBC | 0 | — |
-| `ABS` | Absence Management (plans, accruals, entitlements) | TBC | 0 | — |
-| `TIM` | Time and Labor | TBC | 0 | — |
-| `BEN` | Benefits | TBC | 0 | — |
+| `ABS` | Absence Management (plans, accruals, entitlements) | TBC | 4 | Documentation Specialist |
+| `TIM` | Time and Labor | TBC | 4 | Documentation Specialist |
+| `BEN` | Benefits | TBC | 4 | Documentation Specialist |
 | `CMP` | Compensation (workforce compensation, individual comp, total comp statement) | TBC | 0 | — |
 | `TAL` | Talent Management (goals, performance, career development, talent review, succession) | TBC | 0 | — |
 | `ORC` | Recruiting (Oracle Recruiting Cloud) | TBC | 6 | Documentation Specialist |
-| `LRN` | Learning | TBC | 0 | — |
+| `LRN` | Learning | TBC | 4 | Documentation Specialist |
 | `HSE` | Workforce Health & Safety | TBC | 0 | — |
 | `JRN` | Journeys | TBC | 0 | — |
 | `HDS` | HR Helpdesk | TBC | 0 | — |
