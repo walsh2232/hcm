@@ -13,12 +13,12 @@ readings) · `SCOPE` (a business decision, not a documentation question) ·
 ## Open gaps
 
 ### GAP-001 · MISSING · **Critical**
-**Six public Oracle module source sets are registered, but local ingest and target-tenant validation have not yet been completed.**
+**Thirteen public Oracle module source sets are registered, but local ingest and target-tenant validation have not yet been completed.**
 
-- Progress: ORC, GHR, ABS, BEN, TIM and LRN now have module manifests and source maps using official Oracle guide/catalog and 26D readiness URLs. A local PDF/HTML download, extraction and SQLite FTS retrieval pipeline is committed, along with a weekly source-fingerprint/release-discovery workflow.
-- Blocks: functional decisions still require local ingest, actual target-release verification and tenant-specific validation. Other HCM areas such as Payroll, Compensation, Performance, Journeys, Help Desk, Security, Integrations and Reporting remain to be inventoried.
+- Progress: ORC, GHR, ABS, BEN, TIM, LRN, CMP, PAY, JRN, HDS, HSE, TAL and RPT now have module manifests and source maps using official Oracle guide/catalog and current or latest-located release readiness URLs. A local PDF/HTML download, extraction and SQLite FTS retrieval pipeline is committed, along with a weekly source-fingerprint/release-discovery workflow.
+- Blocks: functional decisions still require local ingest, actual target-release verification and tenant-specific validation. Other HCM areas such as HCM Common, Security, Integrations, Data Conversion, and additional country-specific localization sources remain to be inventoried.
 - Owner: Documentation Specialist.
-- Needed: install requirements-knowledge.txt, run refresh/ingest for each of the six manifests, inspect search results and page locators, then add further module manifests from their actual Oracle Books catalogs. Do not commit Oracle manuals or full-text extracts to this public repository.
+- Needed: install requirements-knowledge.txt, run refresh/ingest for each of the thirteen manifests, inspect search results and page locators, then add further module manifests from their actual Oracle Books catalogs. Do not commit Oracle manuals or full-text extracts to this public repository.
 - Working assumption: ASM-001 and ASM-003 remain open pending project scope and release decisions.
 - Target: HCM-010 source-intake completion.
 - If unresolved: the retrieval engine exists but recommendations remain bounded by public documentation and do not include customer configuration or Oracle Support material behind authentication.
