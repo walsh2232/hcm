@@ -11,12 +11,19 @@ The knowledge system combines concise authored domain maps with full-text retrie
 
 | Code | Domain | Landing page | Domain map | Source manifest |
 |---|---|---|---|---|
-| ORC | Recruiting | [README](ORC/README.md) | [Map](ORC/domain-map.md) | [Manifest](ORC/source-manifest.json) |
-| GHR | Global Human Resources | [README](GHR/README.md) | [Map](GHR/domain-map.md) | [Manifest](GHR/source-manifest.json) |
 | ABS | Absence Management | [README](ABS/README.md) | [Map](ABS/domain-map.md) | [Manifest](ABS/source-manifest.json) |
 | BEN | Benefits | [README](BEN/README.md) | [Map](BEN/domain-map.md) | [Manifest](BEN/source-manifest.json) |
-| TIM | Time and Labor | [README](TIM/README.md) | [Map](TIM/domain-map.md) | [Manifest](TIM/source-manifest.json) |
+| CMP | Compensation | [README](CMP/README.md) | [Map](CMP/domain-map.md) | [Manifest](CMP/source-manifest.json) |
+| GHR | Global Human Resources | [README](GHR/README.md) | [Map](GHR/domain-map.md) | [Manifest](GHR/source-manifest.json) |
+| HDS | Help Desk | [README](HDS/README.md) | [Map](HDS/domain-map.md) | [Manifest](HDS/source-manifest.json) |
+| HSE | Workforce Health and Safety | [README](HSE/README.md) | [Map](HSE/domain-map.md) | [Manifest](HSE/source-manifest.json) |
+| JRN | Journeys | [README](JRN/README.md) | [Map](JRN/domain-map.md) | [Manifest](JRN/source-manifest.json) |
 | LRN | Learning | [README](LRN/README.md) | [Map](LRN/domain-map.md) | [Manifest](LRN/source-manifest.json) |
+| ORC | Recruiting | [README](ORC/README.md) | [Map](ORC/domain-map.md) | [Manifest](ORC/source-manifest.json) |
+| PAY | Global Payroll | [README](PAY/README.md) | [Map](PAY/domain-map.md) | [Manifest](PAY/source-manifest.json) |
+| RPT | HCM Analytics and Reporting | [README](RPT/README.md) | [Map](RPT/domain-map.md) | [Manifest](RPT/source-manifest.json) |
+| TAL | Talent Management | [README](TAL/README.md) | [Map](TAL/domain-map.md) | [Manifest](TAL/source-manifest.json) |
+| TIM | Time and Labor | [README](TIM/README.md) | [Map](TIM/domain-map.md) | [Manifest](TIM/source-manifest.json) |
 
 ## Build local retrieval
 
@@ -37,7 +44,7 @@ python scripts/oracle_hcm_knowledge.py ingest --manifest .project/docs/oracle/OR
 python scripts/oracle_hcm_knowledge.py search "candidate selection process" --manifest .project/docs/oracle/ORC/source-manifest.json
 ```
 
-Use the relevant module manifest path for GHR, ABS, BEN, TIM, or LRN. Do not search one module's index for another module's implementation steps.
+Use the relevant manifest path for any of the thirteen populated modules. The script builds an isolated cache/index for each module. Do not search one module's index for another module's implementation steps.
 
 ## Scheduled source maintenance
 
@@ -45,4 +52,4 @@ GitHub Actions runs the metadata/fingerprint refresh weekly and on relevant push
 
 ## Not yet populated
 
-Payroll, Compensation, Performance Management, Goal Management, Talent Review/Succession, Journeys, Help Desk, Workforce Health & Safety, HCM Common, Security, Integrations, Data Conversion, OTBI/BI Publisher, and extensions remain to be inventoried from Oracle's actual documentation catalogs. They are not marked as source-covered until their live source URLs and guide identities are verified.
+HCM Common, Security, Integrations, Data Conversion, additional country-specific payroll localization, and extensions remain to be inventoried from Oracle's actual documentation catalogs. They are not marked as source-covered until their live source URLs and guide identities are verified.
