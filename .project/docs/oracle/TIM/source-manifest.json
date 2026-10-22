@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "module_code": "TIM",
+  "module_name": "Oracle Fusion Cloud Time and Labor",
+  "source_policy": {
+    "canonical_host": "docs.oracle.com",
+    "allowed_hosts": [
+      "docs.oracle.com"
+    ],
+    "local_cache_gitignored": true,
+    "public_repository_rule": "Do not commit Oracle manuals, extracted full text, or PDF binaries. Fetch and index at execution time into the local cache."
+  },
+  "sources": [
+    {
+      "source_id": "TIM-IMPL",
+      "title": "Implementing Time and Labor",
+      "document_id": "G34726-01",
+      "source_type": "official_implementation_guide",
+      "authority": "oracle_official",
+      "module": "TIM",
+      "release_binding": "rolling guide; cross-check against target quarterly release",
+      "expected_pdf_pages": 310,
+      "html_url": "https://docs.oracle.com/en/cloud/saas/human-resources/faitl/index.html",
+      "pdf_url": "https://docs.oracle.com/en/cloud/saas/human-resources/faitl/implementing-time-and-labor.pdf",
+      "crawl_prefix": "https://docs.oracle.com/en/cloud/saas/human-resources/faitl/",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle catalog HTML/PDF links opened; document ID and 310-page PDF length observed. Copyright © 2011, 2025."
+    },
+    {
+      "source_id": "TIM-USER",
+      "title": "Using Time and Labor",
+      "document_id": "G34743-01",
+      "source_type": "official_using_and_operating_guide",
+      "authority": "oracle_official",
+      "module": "TIM",
+      "release_binding": "rolling guide; cross-check against target quarterly release",
+      "expected_pdf_pages": 54,
+      "html_url": "https://docs.oracle.com/en/cloud/saas/human-resources/fautl/index.html",
+      "pdf_url": "https://docs.oracle.com/en/cloud/saas/human-resources/fautl/using-time-and-labor.pdf",
+      "crawl_prefix": "https://docs.oracle.com/en/cloud/saas/human-resources/fautl/",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle catalog HTML/PDF links opened; document ID and 54-page PDF length observed. Copyright © 2011, 2025."
+    },
+    {
+      "source_id": "TIM-26D-WN",
+      "title": "Time and Labor 26D What's New — Feature Detail",
+      "source_type": "release_readiness_feature_detail",
+      "authority": "oracle_official",
+      "module": "TIM",
+      "release": "26D",
+      "html_url": "https://docs.oracle.com/en/cloud/saas/readiness/hcm/26d/tila-26d/26D-time-labor-wn-f51382.htm",
+      "crawl_prefix": "https://docs.oracle.com/en/cloud/saas/readiness/hcm/26d/tila-26d/",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle HCM 26D readiness index/feature page located and title/URL checked."
+    },
+    {
+      "source_id": "TIM-BOOKS",
+      "title": "Oracle Human Resources - All Books",
+      "source_type": "official_document_catalog",
+      "authority": "oracle_official",
+      "module": "TIM",
+      "html_url": "https://docs.oracle.com/en/cloud/saas/human-resources/books.html",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle Books catalog used to verify actual implementation/using guide titles and links."
+    },
+    {
+      "source_id": "TIM-READINESS-DISCOVERY",
+      "title": "Oracle Fusion Cloud Time and Labor quarterly-update readiness discovery",
+      "source_type": "release_discovery_pattern",
+      "authority": "oracle_official",
+      "module": "TIM",
+      "discovery_index_url": "https://docs.oracle.com/en/cloud/saas/readiness/hcm.html",
+      "release_slug": "tila",
+      "release_url_template": "https://docs.oracle.com/en/cloud/saas/readiness/hcm/{release}/tila-{release}/",
+      "release_crawl_prefix_template": "https://docs.oracle.com/en/cloud/saas/readiness/hcm/{release}/{slug}-{release}/",
+      "required_title_terms": [
+        "time and labor"
+      ],
+      "release_candidates": [
+        "27D",
+        "27C",
+        "27B",
+        "27A",
+        "26D",
+        "26C",
+        "26B",
+        "26A"
+      ],
+      "verified_on": "2026-10-22",
+      "verification_basis": "The official Human Capital Management readiness catalog contains a 26D TILA release family; automatic discovery must still verify the page title/content before accepting a candidate."
+    }
+  ],
+  "indexing": {
+    "html_crawl_same_prefix_only": true,
+    "max_pages_per_source": 1200,
+    "pdf_extraction": "PyMuPDF",
+    "search_backend": "SQLite FTS5",
+    "index_location": ".cache/oracle-hcm/tim/index.sqlite3",
+    "document_cache_location": ".cache/oracle-hcm/tim/documents/",
+    "commit_index_or_downloads": false
+  }
+}
