@@ -28,15 +28,21 @@ Tiering: [`../decision-framework.md`](../decision-framework.md) §1
 | ID | Title | Oracle ref | Modules | Release | Validated | Tier | Status | Received | Location | Extract | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | DOC-000 | _Reserved — illustrative example only_ | — | — | — | — | — | RESERVED | — | — | — | Used in documentation examples. Never a real citation. |
+| DOC-001 | Implementing Recruiting | G34431-12 | ORC | Rolling guide; validate target release | Source metadata confirmed 2026-10-22; functional release validation pending | A | ACTIVE | 2026-10-22 | https://docs.oracle.com/en/cloud/saas/talent-management/faimh/index.html | — (local retrieval index; not committed) | PDF part G34431-12; 448 pages observed. |
+| DOC-002 | Using Recruiting | G34440-08 | ORC | Rolling guide; validate target release | Source metadata confirmed 2026-10-22; functional release validation pending | A | ACTIVE | 2026-10-22 | https://docs.oracle.com/en/cloud/saas/talent-management/faush/index.html | — (local retrieval index; not committed) | PDF part G34440-08; 220 pages observed. |
+| DOC-003 | Using and Administering Recruiting Booster | G34425-04 | ORC | Rolling guide; validate target release | Source metadata confirmed 2026-10-22; functional release validation pending | A | ACTIVE | 2026-10-22 | https://docs.oracle.com/en/cloud/saas/talent-management/faarb/index.html | — (local retrieval index; not committed) | PDF part G34425-04; 70 pages observed. |
+| DOC-004 | Oracle Fusion Cloud Recruiting 26D What's New | G61079-03 | ORC | 26D | 26D metadata confirmed 2026-10-22 | A | ACTIVE | 2026-10-22 | https://docs.oracle.com/en/cloud/saas/readiness/hcm/26d/recr-26d/ | — (retrieved at runtime) | Release-specific readiness source. |
+| DOC-005 | Recruiting 26D Feature Summary | https://docs.oracle.com/en/cloud/saas/readiness/hcm/26d/recr-26d/26D-recruiting-wn-t78659.htm | ORC | 26D | URL and page identified 2026-10-22 | A | ACTIVE | 2026-10-22 | https://docs.oracle.com/en/cloud/saas/readiness/hcm/26d/recr-26d/26D-recruiting-wn-t78659.htm | — (retrieved at runtime) | Retrieve the current full feature row/detail before advising. |
+| DOC-006 | Oracle Talent Management - All Books | https://docs.oracle.com/en/cloud/saas/talent-management/books.html | ORC | n/a | Catalog checked 2026-10-22 | A | ACTIVE | 2026-10-22 | https://docs.oracle.com/en/cloud/saas/talent-management/books.html | — | Official guide inventory; no standalone Administering Recruiting book listed. |
 
-**The registry is empty.** No Oracle documentation has been supplied to this
-project. See `GAP-001` in [`gaps.md`](gaps.md); intake is tracked as `HCM-010`.
+**Initial populated module: ORC (Recruiting).** Six official source entries have been registered and the local retrieval engine is implemented. Full text is downloaded and indexed at runtime in a Git-ignored local cache; it is not committed to this public repository. Functional validity still needs to be checked against the customer's actual quarterly release and tenant configuration.
 
 ## Coverage summary
 
-| In-scope module | Tier A/B sources | Status |
+| In-scope or candidate module | Tier A/B sources | Status |
 | --- | --- | --- |
-| _(unknown — module scope not yet confirmed, `GAP-002`)_ | 0 | Blocked on `HCM-011` |
+| ORC — Recruiting (scope remains TBC under GAP-002) | 6 | Official source metadata registered; local ingest runs on demand. Target-release validation pending. |
+| Other HCM modules | 0 registered here | Source inventory and module scope still need to be confirmed under GAP-002. |
 
 Coverage cannot be assessed until the in-scope module list is confirmed. Once it
 is, every in-scope module with zero Tier A/B sources raises a `MISSING` gap
