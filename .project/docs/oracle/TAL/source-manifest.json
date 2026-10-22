@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "module_code": "TAL",
+  "module_name": "Oracle Fusion Cloud Talent Management",
+  "source_policy": {
+    "canonical_host": "docs.oracle.com",
+    "allowed_hosts": [
+      "docs.oracle.com"
+    ],
+    "local_cache_gitignored": true,
+    "public_repository_rule": "Do not commit Oracle manuals, extracted full text, or PDF binaries. Fetch and index locally at runtime."
+  },
+  "sources": [
+    {
+      "source_id": "TAL-BASE-IMPL",
+      "title": "Implementing Talent Management Base",
+      "source_type": "official_implementation_guide",
+      "authority": "oracle_official",
+      "module": "TAL",
+      "html_url": "https://docs.oracle.com/en/cloud/saas/talent-management/faitm/index.html",
+      "crawl_prefix": "https://docs.oracle.com/en/cloud/saas/talent-management/faitm/",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle Books catalog guide link verified; document ID G34432-02; 276-page PDF observed; copyright © 2025, Oracle.",
+      "release_binding": "rolling guide; validate against target quarterly release",
+      "document_id": "G34432-02",
+      "pdf_url": "https://docs.oracle.com/en/cloud/saas/talent-management/faitm/implementing-talent-management-base.pdf",
+      "expected_pdf_pages": 276
+    },
+    {
+      "source_id": "TAL-GOAL-IMPL",
+      "title": "Implementing Goal Management",
+      "source_type": "official_implementation_guide",
+      "authority": "oracle_official",
+      "module": "TAL",
+      "html_url": "https://docs.oracle.com/en/cloud/saas/talent-management/faigm/index.html",
+      "crawl_prefix": "https://docs.oracle.com/en/cloud/saas/talent-management/faigm/",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle Books catalog guide link verified; document ID G34428-01; 76-page PDF observed; copyright © 2025, Oracle.",
+      "release_binding": "rolling guide; validate against target quarterly release",
+      "document_id": "G34428-01",
+      "pdf_url": "https://docs.oracle.com/en/cloud/saas/talent-management/faigm/implementing-goal-management.pdf",
+      "expected_pdf_pages": 76
+    },
+    {
+      "source_id": "TAL-PERF-IMPL",
+      "title": "Implementing Performance Management",
+      "source_type": "official_implementation_guide",
+      "authority": "oracle_official",
+      "module": "TAL",
+      "html_url": "https://docs.oracle.com/en/cloud/saas/talent-management/faipm/index.html",
+      "crawl_prefix": "https://docs.oracle.com/en/cloud/saas/talent-management/faipm/",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle Books catalog guide link verified; document ID G34430-04; 188-page PDF observed; copyright © 2026, Oracle.",
+      "release_binding": "rolling guide; validate against target quarterly release",
+      "document_id": "G34430-04",
+      "pdf_url": "https://docs.oracle.com/en/cloud/saas/talent-management/faipm/implementing-performance-management.pdf",
+      "expected_pdf_pages": 188
+    },
+    {
+      "source_id": "TAL-REVIEW-IMPL",
+      "title": "Implementing Talent Review and Succession Management",
+      "source_type": "official_implementation_guide",
+      "authority": "oracle_official",
+      "module": "TAL",
+      "html_url": "https://docs.oracle.com/en/cloud/saas/talent-management/fatrs/index.html",
+      "crawl_prefix": "https://docs.oracle.com/en/cloud/saas/talent-management/fatrs/",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle Books catalog guide link verified; document ID G34433-01; 122-page PDF observed; copyright © 2025, Oracle.",
+      "release_binding": "rolling guide; validate against target quarterly release",
+      "document_id": "G34433-01",
+      "pdf_url": "https://docs.oracle.com/en/cloud/saas/talent-management/fatrs/implementing-talent-review-and-succession-management.pdf",
+      "expected_pdf_pages": 122
+    },
+    {
+      "source_id": "TAL-GOAL-USER",
+      "title": "Using Goal Management",
+      "source_type": "official_using_and_operating_guide",
+      "authority": "oracle_official",
+      "module": "TAL",
+      "html_url": "https://docs.oracle.com/en/cloud/saas/talent-management/faugm/index.html",
+      "crawl_prefix": "https://docs.oracle.com/en/cloud/saas/talent-management/faugm/",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle Books catalog guide link verified; document ID G34437-02; copyright © 2026, Oracle.",
+      "release_binding": "rolling guide; validate against target quarterly release",
+      "document_id": "G34437-02"
+    },
+    {
+      "source_id": "TAL-PERF-USER",
+      "title": "Using Performance Management",
+      "source_type": "official_using_and_operating_guide",
+      "authority": "oracle_official",
+      "module": "TAL",
+      "html_url": "https://docs.oracle.com/en/cloud/saas/talent-management/faupm/index.html",
+      "crawl_prefix": "https://docs.oracle.com/en/cloud/saas/talent-management/faupm/",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle Books catalog guide link verified; document ID G34439-07; copyright © 2026, Oracle.",
+      "release_binding": "rolling guide; validate against target quarterly release",
+      "document_id": "G34439-07"
+    },
+    {
+      "source_id": "TAL-REVIEW-USER",
+      "title": "Using Talent Review and Succession Management",
+      "source_type": "official_using_and_operating_guide",
+      "authority": "oracle_official",
+      "module": "TAL",
+      "html_url": "https://docs.oracle.com/en/cloud/saas/talent-management/fautr/index.html",
+      "crawl_prefix": "https://docs.oracle.com/en/cloud/saas/talent-management/fautr/",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle Books catalog guide link verified; document ID G34441-01; copyright © 2025, Oracle.",
+      "release_binding": "rolling guide; validate against target quarterly release",
+      "document_id": "G34441-01"
+    },
+    {
+      "source_id": "TAL-26D",
+      "title": "Talent Management 26D Feature Summary",
+      "source_type": "release_feature_summary",
+      "authority": "oracle_official",
+      "module": "TAL",
+      "html_url": "https://docs.oracle.com/en/cloud/saas/readiness/hcm/26d/tama-26d/26D-talent-mgmt-wn-t78661.htm",
+      "crawl_prefix": "https://docs.oracle.com/en/cloud/saas/readiness/hcm/26d/tama-26d/",
+      "release": "26D",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle readiness/catalog page located and checked; use as source discovery, not proof of tenant feature enablement."
+    },
+    {
+      "source_id": "TAL-BOOKS",
+      "title": "Oracle Talent Management - All Books",
+      "source_type": "official_document_catalog",
+      "authority": "oracle_official",
+      "module": "TAL",
+      "html_url": "https://docs.oracle.com/en/cloud/saas/talent-management/books.html",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle catalog landing page used to validate guide inventory."
+    },
+    {
+      "source_id": "TAL-READINESS-DISCOVERY",
+      "title": "Oracle Fusion Cloud Talent Management quarterly-update readiness discovery",
+      "source_type": "release_discovery_pattern",
+      "authority": "oracle_official",
+      "module": "TAL",
+      "discovery_index_url": "https://docs.oracle.com/en/cloud/saas/readiness/hcm.html",
+      "release_slug": "tama",
+      "release_url_template": "https://docs.oracle.com/en/cloud/saas/readiness/hcm/{release}/tama-{release}/",
+      "release_crawl_prefix_template": "https://docs.oracle.com/en/cloud/saas/readiness/hcm/{release}/{slug}-{release}/",
+      "required_title_terms": [
+        "talent management"
+      ],
+      "required": true,
+      "release_candidates": [
+        "27D",
+        "27C",
+        "27B",
+        "27A",
+        "26D",
+        "26C",
+        "26B",
+        "26A"
+      ],
+      "verified_on": "2026-10-22",
+      "verification_basis": "The central Oracle HCM readiness index is the discovery source; module/release candidates are accepted only after checking the live title/body. Where required=false, failure to discover a product-specific page is not fatal."
+    }
+  ],
+  "indexing": {
+    "html_crawl_same_prefix_only": true,
+    "max_pages_per_source": 1200,
+    "pdf_extraction": "PyMuPDF",
+    "search_backend": "SQLite FTS5",
+    "index_location": ".cache/oracle-hcm/tal/index.sqlite3",
+    "document_cache_location": ".cache/oracle-hcm/tal/documents/",
+    "commit_index_or_downloads": false
+  }
+}
