@@ -21,3 +21,11 @@ The full chapter Markdown, SQLite FTS index, and retrieval chunks are private/lo
 - One Recruiting implementation guide has been extracted locally and validated for page markers, topic links, retrieval chunk structure, and search-index integrity. A table-of-contents page map for the 220-page Using Recruiting guide has also been added; its body text is not locally indexed.
 - The current Oracle catalogue identifies companion guides for Recruiting usage, Recruiting Booster, HCM security, security reference, and HCM REST APIs. Current Booster and HCM security editions now have compact topic/page maps; the full companion bodies are not in this local corpus yet.
 - The target tenant's quarterly HCM release and confirmed module scope remain unknown. Do not claim tenant-release validation until the Product Owner resolves `GAP-002`.
+
+## Intake status and validation
+
+As of 2026-10-22, the private local corpus for **DOC-001** has 35 chapter files, 648 indexed topics, 746 retrieval chunks, a SQLite FTS5 index, and 52 automated validation checks passing with no errors or warnings. Eight lexical query tests cover candidate duplicates, vanity URLs, offer approvals, the CSP delayed-action process, the offer approval task, candidate-security profile option, Move-to-HR duplicate check, and Express Apply profile import.
+
+The companion-guide maps are navigation metadata only: **DOC-002** (*Using Recruiting*, G34440-08), **DOC-003** (*Using and Administering Recruiting Booster*, G34425-04), **DOC-004** (*Securing HCM*, G34732-10), and **DOC-005** (*Security Reference for HCM*, G34733-07) have not had their complete bodies ingested into the private corpus in this environment. Direct binary downloads failed, although Oracle's PDF viewer exposed page text/contents. Do not represent those books as locally searchable full-text sources.
+
+The target tenant quarterly release and final project module scope remain unconfirmed. Guide-edition identifiers are not tenant-release validation.
