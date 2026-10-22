@@ -11,3 +11,7 @@ These short pathways summarize the provided *Implementing Recruiting* guide and 
 | [Candidate search and duplicates](candidate-duplicates.md) | Separate search visibility, candidate-file duplicates, and Move-to-HR person creation checks | DOC-001, Ch. 13, 21, 34 |
 
 Always open the full source section before implementing. Verify release, feature entitlement, privileges, data security, and tenant behavior.
+
+| [Fast Formulas](fast-formulas.md) | Formula type selection, CSP return contract, phase/state timing | DOC-001, Ch. 30 |
+| [Candidate Data Disposal](candidate-data-disposal.md) | Candidate search archiving, Remove Person Information, metrics purge | DOC-001, Ch. 31 |
+| [Recruiting AI Recommendations](recruiting-ai-recommendations.md) | App activation, profile options, data synchronization, missing-recommendation checks | DOC-001, Ch. 25 |
