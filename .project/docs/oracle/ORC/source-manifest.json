@@ -111,7 +111,10 @@
       "verification_basis": "Pattern grounded in current official 26D page; future candidates must pass live title/content checks.",
       "required_title_terms": [
         "recruiting"
-      ]
+      ],
+      "discovery_index_url": "https://docs.oracle.com/en/cloud/saas/readiness/hcm.html",
+      "release_slug": "recr",
+      "release_crawl_prefix_template": "https://docs.oracle.com/en/cloud/saas/readiness/hcm/{release}/{slug}-{release}/"
     }
   ],
   "indexing": {
