@@ -1,0 +1,2 @@
+# Dependencies for local Oracle HCM document extraction.
+PyMuPDF>=1.24,<2.0
