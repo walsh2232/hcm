@@ -8,6 +8,7 @@ on:
     paths:
       - ".project/docs/oracle/**/source-manifest.json"
       - "scripts/oracle_hcm_knowledge.py"
+      - "tests/test_oracle_hcm_knowledge.py"
       - ".github/workflows/oracle-docs-freshness.yml"
 
 permissions:
@@ -20,7 +21,7 @@ concurrency:
 
 jobs:
   check-sources:
-    name: Check official Oracle Recruiting sources
+    name: Check official Oracle HCM module sources
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -62,10 +63,10 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "docs(orc): refresh Oracle source fingerprints"
-          title: "Automated Oracle Recruiting documentation refresh"
+          commit-message: "docs(knowledge): refresh Oracle module source fingerprints"
+          title: "Automated Oracle HCM documentation refresh"
           body: |
-            Automated weekly check of official Oracle Recruiting documentation.
+            Automated weekly check of official Oracle HCM module documentation across every registered source manifest.
 
             Review the generated source-status snapshot for URL failures, changed source fingerprints, and the latest release-readiness page discovered by its title/content. This PR contains metadata only; it does not include Oracle manuals or extracted guide text.
           branch: automation/oracle-docs-freshness
