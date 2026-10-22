@@ -3,7 +3,7 @@
 Repository for the design, configuration, extension, and integration work of an
 Oracle Fusion Cloud HCM implementation.
 
-> **Status: documentation knowledge system implemented.** The reusable Oracle HCM expert skill, local PDF/HTML retrieval engine, source manifests for six modules, and weekly Oracle source-freshness workflow are in place. Full text/indexes are created locally; tenant-specific decisions still require the environment's release, configuration and scope to be validated. See the [gap log](.project/docs/gaps.md).
+> **Status: documentation knowledge system implemented.** The reusable Oracle HCM expert skill, local PDF/HTML retrieval engine, source manifests for thirteen modules, and weekly Oracle source-freshness workflow are in place. Full text/indexes are created locally; tenant-specific decisions still require the environment's release, configuration and scope to be validated. See the [gap log](.project/docs/gaps.md).
 
 ## Start here
 
