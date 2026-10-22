@@ -11,12 +11,12 @@ The knowledge system combines concise authored domain maps with full-text retrie
 
 | Code | Domain | Landing page | Domain map | Source manifest |
 |---|---|---|---|---|
-| ORC | Recruiting | [README](Recruiting) | [Map](`.project/docs/oracle/ORC/README.md`) | [Manifest](`.project/docs/oracle/ORC/domain-map.md`) |
-| GHR | Global Human Resources | [README](Global Human Resources) | [Map](`.project/docs/oracle/GHR/README.md`) | [Manifest](`.project/docs/oracle/GHR/domain-map.md`) |
-| ABS | Absence Management | [README](Absence Management) | [Map](`.project/docs/oracle/ABS/README.md`) | [Manifest](`.project/docs/oracle/ABS/domain-map.md`) |
-| BEN | Benefits | [README](Benefits) | [Map](`.project/docs/oracle/BEN/README.md`) | [Manifest](`.project/docs/oracle/BEN/domain-map.md`) |
-| TIM | Time and Labor | [README](Time and Labor) | [Map](`.project/docs/oracle/TIM/README.md`) | [Manifest](`.project/docs/oracle/TIM/domain-map.md`) |
-| LRN | Learning | [README](Learning) | [Map](`.project/docs/oracle/LRN/README.md`) | [Manifest](`.project/docs/oracle/LRN/domain-map.md`) |
+| ORC | Recruiting | [README](ORC/README.md) | [Map](ORC/domain-map.md) | [Manifest](ORC/source-manifest.json) |
+| GHR | Global Human Resources | [README](GHR/README.md) | [Map](GHR/domain-map.md) | [Manifest](GHR/source-manifest.json) |
+| ABS | Absence Management | [README](ABS/README.md) | [Map](ABS/domain-map.md) | [Manifest](ABS/source-manifest.json) |
+| BEN | Benefits | [README](BEN/README.md) | [Map](BEN/domain-map.md) | [Manifest](BEN/source-manifest.json) |
+| TIM | Time and Labor | [README](TIM/README.md) | [Map](TIM/domain-map.md) | [Manifest](TIM/source-manifest.json) |
+| LRN | Learning | [README](LRN/README.md) | [Map](LRN/domain-map.md) | [Manifest](LRN/source-manifest.json) |
 
 ## Build local retrieval
 
