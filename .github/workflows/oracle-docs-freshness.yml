@@ -51,7 +51,12 @@ jobs:
 
       - name: Report source status
         if: always()
-        run: python scripts/oracle_hcm_knowledge.py status
+        shell: bash
+        run: |
+          for manifest in .project/docs/oracle/*/source-manifest.json; do
+            echo "Status for $manifest"
+            python scripts/oracle_hcm_knowledge.py status --manifest "$manifest" || true
+          done
 
       - name: Open a review PR if source fingerprints or release changes
         uses: peter-evans/create-pull-request@v7
