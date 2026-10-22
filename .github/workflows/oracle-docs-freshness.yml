@@ -32,12 +32,14 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Validate manifest and Python syntax
+      - name: Validate manifest, syntax, and local tests
         run: |
           python -m py_compile scripts/oracle_hcm_knowledge.py
           python -c "import json; p='.project/docs/oracle/ORC/source-manifest.json'; d=json.load(open(p, encoding='utf-8')); assert d['module_code']=='ORC'; assert len(d['sources']) >= 6; print('Manifest valid:', len(d['sources']), 'source entries')"
+          python -m unittest discover -s tests -p 'test_oracle_hcm_knowledge.py'
 
       - name: Refresh source fingerprints and discover the latest readiness release
+        continue-on-error: true
         run: python scripts/oracle_hcm_knowledge.py refresh --timeout 15
 
       - name: Report source status
