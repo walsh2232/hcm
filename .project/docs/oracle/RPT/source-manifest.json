@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "module_code": "RPT",
+  "module_name": "Oracle Fusion Cloud HCM Analytics and Reporting",
+  "source_policy": {
+    "canonical_host": "docs.oracle.com",
+    "allowed_hosts": [
+      "docs.oracle.com"
+    ],
+    "local_cache_gitignored": true,
+    "public_repository_rule": "Do not commit Oracle manuals, extracted full text, or PDF binaries. Fetch and index locally at runtime."
+  },
+  "sources": [
+    {
+      "source_id": "RPT-ADMIN-HCM",
+      "title": "Administering Analytics and Reports for HCM",
+      "source_type": "official_administration_guide",
+      "authority": "oracle_official",
+      "module": "RPT",
+      "html_url": "https://docs.oracle.com/en/cloud/saas/human-resources/fahca/index.html",
+      "crawl_prefix": "https://docs.oracle.com/en/cloud/saas/human-resources/fahca/",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle Books catalog guide link verified; document ID G34671-01; 120-page PDF observed; copyright © 2025, Oracle.",
+      "release_binding": "rolling guide; validate against target quarterly release",
+      "document_id": "G34671-01",
+      "pdf_url": "https://docs.oracle.com/en/cloud/saas/human-resources/fahca/administering-analytics-and-reports-for-hcm.pdf",
+      "expected_pdf_pages": 120
+    },
+    {
+      "source_id": "RPT-TM-CATALOG",
+      "title": "Oracle Talent Management Books catalog (Using Oracle Transactional Business Intelligence)",
+      "source_type": "official_document_catalog",
+      "authority": "oracle_official",
+      "module": "RPT",
+      "html_url": "https://docs.oracle.com/en/cloud/saas/talent-management/books.html",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle Books catalog guide link verified; copyright © not asserted, Oracle.",
+      "release_binding": "rolling guide; validate against target quarterly release"
+    },
+    {
+      "source_id": "RPT-HCM-CATALOG",
+      "title": "Oracle HCM readiness catalog (HCM Analytics / Fusion Data Intelligence references)",
+      "source_type": "official_release_catalog",
+      "authority": "oracle_official",
+      "module": "RPT",
+      "html_url": "https://docs.oracle.com/en/cloud/saas/readiness/hcm.html",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle readiness/catalog page located and checked; use as source discovery, not proof of tenant feature enablement."
+    },
+    {
+      "source_id": "RPT-BOOKS",
+      "title": "Oracle Talent Management - All Books / Oracle Human Resources - All Books",
+      "source_type": "official_document_catalog",
+      "authority": "oracle_official",
+      "module": "RPT",
+      "html_url": "https://docs.oracle.com/en/cloud/saas/human-resources/books.html",
+      "verified_on": "2026-10-22",
+      "verification_basis": "Official Oracle catalog landing page used to validate guide inventory."
+    }
+  ],
+  "indexing": {
+    "html_crawl_same_prefix_only": true,
+    "max_pages_per_source": 1200,
+    "pdf_extraction": "PyMuPDF",
+    "search_backend": "SQLite FTS5",
+    "index_location": ".cache/oracle-hcm/rpt/index.sqlite3",
+    "document_cache_location": ".cache/oracle-hcm/rpt/documents/",
+    "commit_index_or_downloads": false
+  }
+}
