@@ -16,7 +16,7 @@ and registry entries. Use the code, not the marketing name.
 | `BEN` | Benefits | TBC | 0 | — |
 | `CMP` | Compensation (workforce compensation, individual comp, total comp statement) | TBC | 0 | — |
 | `TAL` | Talent Management (goals, performance, career development, talent review, succession) | TBC | 0 | — |
-| `ORC` | Recruiting (Oracle Recruiting Cloud) | TBC | 0 | — |
+| `ORC` | Recruiting (Oracle Recruiting Cloud) | TBC | 6 | Documentation Specialist |
 | `LRN` | Learning | TBC | 0 | — |
 | `HSE` | Workforce Health & Safety | TBC | 0 | — |
 | `JRN` | Journeys | TBC | 0 | — |
