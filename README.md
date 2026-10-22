@@ -10,7 +10,7 @@ Oracle Fusion Cloud HCM implementation.
 | If you want to… | Read |
 | --- | --- |
 | Use the Oracle HCM module expert skill | [Oracle HCM Expert](.agents/skills/oracle-hcm-expert/SKILL.md) |
-| Browse all populated module manifests | [Oracle module knowledge index](.project/docs/oracle/README.md) |
+| Browse all populated module manifests | [Oracle module knowledge index](.project/docs/oracle/index.md) |
 | Search official Recruiting documentation locally | [.project/docs/oracle/ORC/README.md](.project/docs/oracle/ORC/README.md) |
 | Understand how this project runs | [`.project/README.md`](.project/README.md) |
 | See what is being worked on | [`.project/kanban.md`](.project/kanban.md) |
