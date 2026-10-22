@@ -191,6 +191,7 @@ def get_status_sources(manifest: dict) -> list[dict]:
                     "title": source["title"],
                     "kind": "pdf" if key == "pdf_url" else "html",
                     "url": source[key],
+                    "crawl_prefix": source.get("crawl_prefix") if key == "html_url" else None,
                     "release": source.get("release", source.get("release_binding", "rolling")),
                     "expected_pdf_pages": source.get("expected_pdf_pages")
                 })
@@ -206,6 +207,67 @@ def release_candidates(manifest: dict) -> list[tuple[str, str]]:
         release = candidate.lower()
         output.append((candidate.upper(), pattern["release_url_template"].format(release=release)))
     return output
+
+def fingerprint_html_tree(seed_url: str, prefix: str, seed_body: bytes, timeout: int = 10, max_pages: int = 1200) -> dict:
+    """Hash the visible content of all linked Oracle HTML chapters under a source prefix.
+
+    The manifest-only status file stores fingerprints and counts—not the page text.
+    """
+    prefix = canonical_url(prefix).rstrip("/") + "/"
+    seed_url = canonical_url(seed_url)
+    queue = [seed_url]
+    seen: set[str] = set()
+    page_hashes: dict[str, str] = {}
+    page_titles: dict[str, str] = {}
+    errors: list[dict] = []
+    while queue and len(seen) < max_pages:
+        url = queue.pop(0)
+        if url in seen or not url.startswith(prefix):
+            continue
+        parts = urlsplit(url)
+        if parts.scheme != "https" or parts.netloc != "docs.oracle.com":
+            continue
+        seen.add(url)
+        if url == seed_url:
+            body, status = seed_body, 200
+        else:
+            try:
+                body, headers, status = fetch(url, timeout=timeout)
+            except RuntimeError as exc:
+                errors.append({"url": url, "error": str(exc)})
+                continue
+            content_type = headers.get("Content-Type", "").lower()
+            if "html" not in content_type and not parts.path.lower().endswith((".html", ".htm")):
+                continue
+        if status < 200 or status >= 300:
+            errors.append({"url": url, "http_status": status})
+            continue
+        parser = parse_html(body)
+        normalized = parser.text.encode("utf-8")
+        page_hashes[url] = hashlib.sha256(normalized).hexdigest()
+        page_titles[url] = parser.title or next(iter(parser.headings), "")
+        for href in parser.links:
+            candidate = canonical_url(urljoin(url, href))
+            candidate_parts = urlsplit(candidate)
+            if (candidate_parts.scheme == "https" and candidate_parts.netloc == "docs.oracle.com"
+                    and candidate.startswith(prefix)
+                    and candidate_parts.path.lower().endswith((".html", ".htm"))
+                    and candidate not in seen):
+                queue.append(candidate)
+        time.sleep(0.02)
+    digest = hashlib.sha256()
+    for url in sorted(page_hashes):
+        digest.update(url.encode("utf-8"))
+        digest.update(b"\\0")
+        digest.update(page_hashes[url].encode("ascii"))
+        digest.update(b"\\n")
+    return {
+        "sha256": digest.hexdigest(),
+        "page_count": len(page_hashes),
+        "failed_pages": len(errors),
+        "error_samples": errors[:10],
+        "title": page_titles.get(seed_url, "")
+    }
 
 
 def discover_latest_release(manifest: dict, timeout: int = 10) -> dict | None:
@@ -284,21 +346,40 @@ def refresh(timeout: int = DEFAULT_TIMEOUT) -> int:
         try:
             body, headers, status = fetch(item["url"], timeout=timeout)
             is_pdf = item["kind"] == "pdf" or "pdf" in headers.get("Content-Type", "").lower()
+            page_count = None
+            failed_pages = 0
+            error_samples = []
             if not is_pdf:
                 parser = parse_html(body)
                 observed_title = parser.title or next(iter(parser.headings), item["title"])
                 normalized = parser.text.encode("utf-8")
                 fingerprint = hashlib.sha256(normalized).hexdigest()
+                if item.get("crawl_prefix") and 200 <= status < 300:
+                    tree = fingerprint_html_tree(
+                        item["url"], item["crawl_prefix"], body,
+                        timeout=min(timeout, 10),
+                        max_pages=manifest.get("indexing", {}).get("max_pages_per_source", 1200)
+                    )
+                    fingerprint = tree["sha256"]
+                    page_count = tree["page_count"]
+                    failed_pages = tree["failed_pages"]
+                    error_samples = tree["error_samples"]
+                    observed_title = tree["title"] or observed_title
+                    if failed_pages:
+                        failures += 1
             else:
                 observed_title = item["title"]
                 fingerprint = hashlib.sha256(body).hexdigest()
             status_record = {
                 **item,
                 "http_status": status,
-                "ok": 200 <= status < 300,
+                "ok": 200 <= status < 300 and failed_pages == 0,
                 "observed_title": observed_title,
                 "content_type": headers.get("Content-Type", ""),
                 "content_length": len(body),
+                "page_count": page_count,
+                "failed_pages": failed_pages,
+                "error_samples": error_samples,
                 "sha256": fingerprint
             }
             if not status_record["ok"]:
