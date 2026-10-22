@@ -98,6 +98,19 @@ class IndexPrimitiveTests(unittest.TestCase):
         self.assertIn("Configure a career site.", parser.text)
         self.assertIn("setup.html", parser.links)
 
+    def test_html_tree_fingerprint_is_metadata_only_and_deterministic(self):
+        body = b'<html><head><title>Guide</title></head><body><h1>Career Sites</h1><p>Configure a site.</p></body></html>'
+        prefix = "https://docs.oracle.com/en/cloud/saas/talent-management/faimh/"
+        first = KNOWLEDGE.fingerprint_html_tree(prefix + "index.html", prefix, body, max_pages=5)
+        second = KNOWLEDGE.fingerprint_html_tree(prefix + "index.html", prefix, body, max_pages=5)
+        changed = KNOWLEDGE.fingerprint_html_tree(prefix + "index.html", prefix, body.replace(b"Configure", b"Administer"), max_pages=5)
+        self.assertEqual(first["page_count"], 1)
+        self.assertEqual(first["failed_pages"], 0)
+        self.assertEqual(first["sha256"], second["sha256"])
+        self.assertNotEqual(first["sha256"], changed["sha256"])
+        self.assertEqual(first["title"], "Guide")
+        self.assertNotIn("Configure a site.", str(first))
+
     def test_chunks_preserve_searchable_terms_and_bound_size(self):
         original = "Candidate selection process. " * 200
         chunks = KNOWLEDGE.split_chunks(original, size=400, overlap=40)
