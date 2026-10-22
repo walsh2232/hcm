@@ -108,7 +108,10 @@
         "26A"
       ],
       "verified_on": "2026-10-22",
-      "verification_basis": "Pattern grounded in current official 26D page; future candidates must pass live title/content checks."
+      "verification_basis": "Pattern grounded in current official 26D page; future candidates must pass live title/content checks.",
+      "required_title_terms": [
+        "recruiting"
+      ]
     }
   ],
   "indexing": {
