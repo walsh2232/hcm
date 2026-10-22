@@ -16,7 +16,7 @@ and registry entries. Use the code, not the marketing name.
 | `BEN` | Benefits | TBC | 0 | — |
 | `CMP` | Compensation (workforce compensation, individual comp, total comp statement) | TBC | 0 | — |
 | `TAL` | Talent Management (goals, performance, career development, talent review, succession) | TBC | 0 | — |
-| `ORC` | Recruiting (Oracle Recruiting Cloud) | TBC | 0 | — |
+| `ORC` | Recruiting (Oracle Recruiting Cloud) | TBC | 6 registered official sources; 1 locally extracted | Documentation Specialist |
 | `LRN` | Learning | TBC | 0 | — |
 | `HSE` | Workforce Health & Safety | TBC | 0 | — |
 | `JRN` | Journeys | TBC | 0 | — |
@@ -34,7 +34,9 @@ Oracle HCM implementation needs role design, interfaces, and conversion.
 ## Per-module documentation
 
 Each in-scope module gets a directory under [`../oracle/`](../oracle/) holding the
-normalised extracts for its registered sources:
+source dossiers and normalised evidence extracts for its registered sources. For ORC,
+[`DOC-001`](../oracle/ORC/DOC-001.md) records the locally processed *Implementing
+Recruiting* guide; companion guide bodies remain online-only until extracted:
 
 ```
 .project/docs/oracle/<CODE>/DOC-###.md
