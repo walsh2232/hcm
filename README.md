@@ -41,6 +41,18 @@ tests/             Test strategy, test cases, automation
 Each directory carries its own `README.md` describing what belongs there and the
 naming conventions that apply.
 
+## Oracle Recruiting documentation intake
+
+The Recruiting intake is underway under [draft PR #1](https://github.com/walsh2232/hcm/pull/1). The source registry contains DOC-001 (*Implementing Recruiting*, G34431-12) and companion-source identities. The private local corpus for DOC-001 has 35 chapter files, 648 searchable topic headings, 650 CSV topic-index entries, 751 retrieval chunks, and 12 source-linked task playbooks.
+
+- [Recruiting source workspace](.project/docs/oracle/ORC/README.md)
+- [DOC-001 source dossier](.project/docs/oracle/ORC/DOC-001.md)
+- [Recruiting playbook index](.project/docs/oracle/ORC/playbooks/README.md)
+- [Source issues](.project/docs/oracle/ORC/SOURCE-ISSUES.md) and [GAP-008](.project/docs/gaps.md)
+- [Local PDF intake and search tooling](scripts/oracle_docs/README.md)
+
+The full PDF and full extracted text corpus are intentionally not committed to this public repo. The edition identifier G34431-12 is not evidence of the target tenant's quarterly release. The latest local wiki validator passes 68 checks, while latest remote CI after all new changes is still to be confirmed.
+
 ## Ground rules
 
 1. **Oracle official documentation is the source of truth.** Every design decision
