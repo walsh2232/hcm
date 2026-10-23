@@ -43,7 +43,7 @@ naming conventions that apply.
 
 ## Oracle Recruiting documentation intake
 
-The Recruiting intake is underway under [draft PR #1](https://github.com/walsh2232/hcm/pull/1). The source registry contains DOC-001 (*Implementing Recruiting*, G34431-12) and companion-source identities. The private local corpus for DOC-001 has 35 chapter files, 648 searchable topic headings, 650 CSV topic-index entries, 751 retrieval chunks, and 16 source-linked task playbooks.
+The Recruiting intake is underway under [draft PR #1](https://github.com/walsh2232/hcm/pull/1). The source registry contains DOC-001 (*Implementing Recruiting*, G34431-12) and companion-source identities. The private local corpus for DOC-001 has 35 chapter files, 648 searchable topic headings, 650 CSV topic-index entries, 751 retrieval chunks, and 19 source-linked task playbooks.
 
 - [Recruiting source workspace](.project/docs/oracle/ORC/README.md)
 - [DOC-001 source dossier](.project/docs/oracle/ORC/DOC-001.md)
@@ -51,7 +51,7 @@ The Recruiting intake is underway under [draft PR #1](https://github.com/walsh22
 - [Source issues](.project/docs/oracle/ORC/SOURCE-ISSUES.md) and [GAP-008](.project/docs/gaps.md)
 - [Local PDF intake and search tooling](scripts/oracle_docs/README.md)
 
-The HTML ingestion fallback is ready for a local/network-enabled run, but outbound DNS/network access was unavailable during this build, so companion guide bodies are not yet fully indexed. The TDS active-rule statement/precedence ambiguity is also tracked as SI-004/GAP-009 after visual inspection of DOC-001 physical PDF p. 443. The full PDF and full extracted text corpus are intentionally not committed to this public repo. The edition identifier G34431-12 is not evidence of the target tenant's quarterly release. The companion HTML-ingestion fallback and separate multi-guide search utility are implemented. The latest local wiki validator passes 75/75 checks and the offline tooling regression suite passes 13/13 tests. Live companion retrieval was blocked by outbound DNS/network restrictions, so companion texts remain navigation-only. Latest remote CI after all new changes is still to be confirmed.
+The HTML ingestion fallback is ready for a local/network-enabled run, but outbound DNS/network access was unavailable during this build, so companion guide bodies are not yet fully indexed. The TDS active-rule statement/precedence ambiguity is also tracked as SI-004/GAP-009 after visual inspection of DOC-001 physical PDF p. 443. The full PDF and full extracted text corpus are intentionally not committed to this public repo. The edition identifier G34431-12 is not evidence of the target tenant's quarterly release. The companion HTML-ingestion fallback and separate multi-guide search utility are implemented. The latest local wiki validator passes 79/79 checks and the offline tooling regression suite passes 13/13 tests. Live companion retrieval was blocked by outbound DNS/network restrictions, so companion texts remain navigation-only. Latest remote CI after all new changes is still to be confirmed.
 
 ## Ground rules
 
