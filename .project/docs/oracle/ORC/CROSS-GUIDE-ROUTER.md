@@ -8,6 +8,7 @@
 | Offer action missing, approval stuck, or not moved to HR | Implementing Recruiting, Ch. 21 and Ch. 4 | Using Recruiting, Ch. 14–15; security guides; Move-to-HR duplicate-check setting |
 | Interview scheduling/calendar integration | Implementing Recruiting, Ch. 11–12 | Using Recruiting, Ch. 13; Booster, Ch. 3/8 if shared schedules/coordination are used |
 | Hiring events, SMS/WhatsApp, Recruiting Assistant | Using and Administering Recruiting Booster | Implementing Recruiting, Ch. 1–3, 6–7, 18, 32; current Booster documentation |
+| TDS page field visibility or rules overlap | Implementing Recruiting, Ch. 35 | Distinguish action, role, recruiting type, country, requiredness, and rule order; source has an unresolved active-rule statement/precedence ambiguity (SI-004/GAP-009) |
 | Approval uses flexfields | Implementing Recruiting, Ch. 9 or 21 | Follow the rule-editor path stated for that approval type; requisition and offer rules differ |
 | Candidate duplicates | Implementing Recruiting, Ch. 13 and 21 | Using Recruiting, Ch. 7; HCM security when Person creation is involved |
 | REST access/endpoint issue | Current HCM REST API reference | Securing HCM for auth; exact API resource/version and server response |
