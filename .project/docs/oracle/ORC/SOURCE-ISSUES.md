@@ -24,3 +24,13 @@ Both strings were visually checked against the rendered supplied PDF. This is no
 ## SI-002 — Guide edition is not tenant-release validation
 
 G34431-12 is the guide/document identifier. It does not establish the quarterly HCM release deployed in a specific tenant. The source registry's Validated field must remain blank until the target release is named and the source is checked against it.
+
+## SI-004 — Transaction Design Studio active-rule statement vs precedence example
+
+**Status:** Open — tracked as GAP-009. Validate before implementing a pattern that depends on multiple active rules for one action.
+
+**Source:** DOC-001, *Implementing Recruiting*, Chapter 35, physical PDF p. 443 / printed p. 425. The source page was rendered and visually inspected.
+
+The same source passage states that only one rule can be active for an action at a time, while the following passage describes several rules for an action, ordered by precedence, and says the first applicable rule wins instead of combining fields. The document does not explain whether these statements refer to different aspects of rule status or describe inconsistent behavior.
+
+**Interpretation not established:** don't infer a definitive active-rule count or rule-merging behavior. Inspect the target TDS UI and current-release Oracle guidance; test in non-production and raise an Oracle Support question if needed. The [TDS rule precedence playbook](playbooks/tds-rule-precedence-and-context.md) preserves both statements.
