@@ -29,3 +29,7 @@ escalatable, which is a different thing.
 - A defect is closed by a passing re-test, not by an explanation.
 - Regression scope is decided per case, not assumed — see the `Regression` section
   of the test case template.
+
+## Tooling regression tests
+
+The GitHub Actions workflow runs `tests/test_oracle_docs_normalizer.py`. It covers PDF-derived procedure formatting (numbered markers, alphabetic substeps, Setup and Maintenance triplets, scheduled-process lists), bold-span spacing, and idempotence. These are tests for the local documentation pipeline, not tests of Oracle tenant behavior.
