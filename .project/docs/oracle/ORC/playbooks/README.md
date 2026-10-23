@@ -24,3 +24,7 @@ These short pathways summarize *Implementing Recruiting* (DOC-001) and link back
 ## How to use these playbooks
 
 Open the full guide section before implementation. Verify target quarterly release, feature entitlement, privileges, data security, local configuration, and test outcomes. Preserve Oracle names and source ambiguity. The differing Oracle Search index strings are recorded in [SOURCE-ISSUES.md](../SOURCE-ISSUES.md) and tracked as GAP-008; do not silently harmonize them.
+
+| [TDS rule context and precedence](tds-rule-precedence-and-context.md) | Action scope, role/country/recruiting-type context, order, unresolved active-rule statement | DOC-001, Ch. 35, PDF pp. 443–448 / printed pp. 425–430; GAP-009 |
+| [Offer-letter template versioning and languages](offer-letter-template-versioning-and-languages.md) | Current-version impacts, separate template items, XDOLOCALE, resolved-token e-signature | DOC-001, Ch. 20, PDF pp. 285–296 / printed pp. 267–278 |
+| [Candidate referral flexfields](candidate-referral-flexfields.md) | Referral contexts, TDS actions, agency/employee referral visibility and privilege | DOC-001, Ch. 17, PDF pp. 273–274 / printed pp. 255–256 |
