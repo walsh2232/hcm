@@ -69,9 +69,11 @@ def next_page_url(source: str, current_url: str, index_url: str) -> str | None:
 
 
 class MarkdownParser(HTMLParser):
-    def __init__(self):
+    def __init__(self, base_url: str = ""):
         super().__init__(convert_charrefs=True)
         self.parts, self.stack = [], []
+        self.base_url = base_url
+        self.anchors = []
         self.skip_depth = 0
         self.skip_stack = []
         self.table = None
@@ -102,7 +104,15 @@ class MarkdownParser(HTMLParser):
             if tag not in VOID:
                 self.skip_depth, self.skip_stack = 1, [tag]
             return
-        if tag == "table":
+        if tag == "a":
+            href = attr.get("href", "").strip()
+            if href and not href.startswith(("javascript:", "mailto:", "#")):
+                from urllib.parse import urljoin
+                self.anchors.append(urljoin(self.base_url, href) if self.base_url else href)
+                self.emit("[")
+            else:
+                self.anchors.append(None)
+        elif tag == "table":
             self.newline(2); self.table, self.row = [], None
         elif tag == "tr" and self.table is not None:
             self.row = []
@@ -125,7 +135,11 @@ class MarkdownParser(HTMLParser):
             if self.skip_stack and tag == self.skip_stack[-1]:
                 self.skip_stack.pop(); self.skip_depth -= 1
             return
-        if tag in {"p", "li", "h1", "h2", "h3", "h4", "h5", "h6", "pre", "section", "article", "div", "main"}:
+        if tag == "a":
+            href = self.anchors.pop() if self.anchors else None
+            if href:
+                self.emit("](" + href + ")")
+        elif tag in {"p", "li", "h1", "h2", "h3", "h4", "h5", "h6", "pre", "section", "article", "div", "main"}:
             self.newline(2 if tag != "li" else 1)
         elif tag in {"td", "th"} and self.cell is not None and self.row is not None:
             self.row.append(re.sub(r"\s+", " ", "".join(self.cell)).strip()); self.cell = None
@@ -225,7 +239,7 @@ def main():
         except Exception as exc:
             raise SystemExit(f"Fetch failed at sequence {sequence} ({current}): {exc}. No complete corpus was claimed.")
         html = raw.decode("utf-8", errors="replace")
-        parser_html = MarkdownParser(); parser_html.feed(html)
+        parser_html = MarkdownParser(current); parser_html.feed(html)
         title = args.title if sequence == 1 else args.title
         page_md = f"# {title} — HTML sequence {sequence}\n\n<!-- source-html-page: {sequence} | url: {current} -->\n\nSource: {current}\n\n" + parser_html.markdown()
         pages.append(page_md)
