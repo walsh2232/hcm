@@ -51,7 +51,7 @@ The Recruiting intake is underway under [draft PR #1](https://github.com/walsh22
 - [Source issues](.project/docs/oracle/ORC/SOURCE-ISSUES.md) and [GAP-008](.project/docs/gaps.md)
 - [Local PDF intake and search tooling](scripts/oracle_docs/README.md)
 
-The HTML ingestion fallback is ready for a local/network-enabled run, but outbound DNS/network access was unavailable during this build, so companion guide bodies are not yet fully indexed. The full PDF and full extracted text corpus are intentionally not committed to this public repo. The edition identifier G34431-12 is not evidence of the target tenant's quarterly release. The latest local wiki validator passes 72 checks, while latest remote CI after all new changes is still to be confirmed.
+The HTML ingestion fallback is ready for a local/network-enabled run, but outbound DNS/network access was unavailable during this build, so companion guide bodies are not yet fully indexed. The full PDF and full extracted text corpus are intentionally not committed to this public repo. The edition identifier G34431-12 is not evidence of the target tenant's quarterly release. The companion HTML-ingestion fallback and separate multi-guide search utility are implemented. The latest local wiki validator passes 75/75 checks and the offline tooling regression suite passes 13/13 tests. Live companion retrieval was blocked by outbound DNS/network restrictions, so companion texts remain navigation-only. Latest remote CI after all new changes is still to be confirmed.
 
 ## Ground rules
 
