@@ -36,3 +36,7 @@ The target tenant quarterly release and final project module scope remain unconf
 The playbook set now covers CSP automation, offer approvals/Move to HR, Recruiting security, career sites/application flows, candidate duplicates/search, Fast Formula contracts, candidate-data disposal and retention controls, Recruiting AI recommendations/data ingestion, requisition approvals, interview/calendar integration, partner provisioning, Oracle Search/P2T/T2T, notification templates, prescreening scoring/versioning, campaign opt-in/email operations, and agency portal access/privacy. They are concise source-linked pathways, not substitutes for the full chapter or tenant-specific release validation.
 
 The Oracle Search source-string distinction is recorded in [SOURCE-ISSUES.md](SOURCE-ISSUES.md) and tracked as GAP-008. Do not silently harmonize the values.
+
+## Companion ingestion fallback
+
+A reusable [sequential HTML ingestor](../../../../scripts/oracle_docs/ingest_oracle_html.py) and [multi-source search tool](../../../../scripts/oracle_docs/search_corpus.py) are available for local use when Oracle's PDF endpoint is blocked. The HTML crawler retains source URLs and labels results by HTML sequence, not as PDF pages. It passed offline unit tests, but outbound DNS/network access in the current runtime prevented a full companion fetch. DOC-002–DOC-005 remain contents/page maps only, not full searchable corpora.
