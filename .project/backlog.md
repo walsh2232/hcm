@@ -119,7 +119,7 @@ registered, edition-bound, retrievable, and indexed, so downstream work can cite
 the source and prove which edition supports a claim.
 
 Current intake: DOC-001 (*Implementing Recruiting*, G34431-12) is indexed in a
-private local corpus with 35 chapter files, a topic index, 746 retrieval chunks,
+private local corpus with 35 chapter files, 648 searchable SQLite topic headings, 650 CSV topic-index entries, and 751 retrieval chunks,
 a SQLite FTS5 search index, and page-level citations. DOC-002–DOC-006 are
 catalogued official companion references but are not yet fully ingested locally.
 
