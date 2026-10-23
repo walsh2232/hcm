@@ -12,13 +12,14 @@ This directory holds source records, compact navigation metadata, and documented
 | [RECRUITING-BOOSTER-TOPIC-MAP.md](RECRUITING-BOOSTER-TOPIC-MAP.md) | Booster chapter map and implementation cross-links. |
 | [SECURITY-NAVIGATION.md](SECURITY-NAVIGATION.md) | Routing across Recruiting security, Securing HCM, and the security reference book. |
 | [CROSS-GUIDE-ROUTER.md](CROSS-GUIDE-ROUTER.md) | Select the best official guide for a Recruiting implementation or troubleshooting question. |
+| [SOURCE-ISSUES.md](SOURCE-ISSUES.md) | Open source-level ambiguity log; SI-001/GAP-008 preserves two context-specific Oracle Search index names. |
 | [playbooks/](playbooks/README.md) | Eight compact implementation/diagnostic playbooks derived from DOC-001. |
 
 The full chapter Markdown, SQLite FTS index, and retrieval chunks are private/local artifacts. A generated PDF-derived corpus should live under `.local/oracle-docs/<DOC-ID>/`; this path is git-ignored. See the [documentation ingest contract](../../README.md) and [source registry](../../source-registry.md).
 
 ## Source coverage status
 
-- One Recruiting implementation guide has been extracted locally and validated for page markers, topic links, retrieval chunk structure, and search-index integrity. A table-of-contents page map for the 220-page Using Recruiting guide has also been added; its body text is not locally indexed.
+- One Recruiting implementation guide has been extracted locally and validated for page markers, topic links, retrieval chunk structure, and search-index integrity. The local corpus now has 751 retrieval chunks; 12 source-linked playbooks cover high-utility implementation and troubleshooting paths. A table-of-contents page map for the 220-page Using Recruiting guide has also been added; its body text is not locally indexed.
 - The current Oracle catalogue identifies companion guides for Recruiting usage, Recruiting Booster, HCM security, security reference, and HCM REST APIs. Current Booster and HCM security editions now have compact topic/page maps; the full companion bodies are not in this local corpus yet.
 - The target tenant's quarterly HCM release and confirmed module scope remain unknown. Do not claim tenant-release validation until the Product Owner resolves `GAP-002`.
 
