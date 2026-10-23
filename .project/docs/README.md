@@ -84,3 +84,5 @@ Documentation Specialist.
 ### Private extraction and public repository boundary
 
 The full Markdown corpus, FTS database, and chunk files may contain substantial Oracle-copyrighted text. Keep these in the user's local/private reference workspace; do not commit them to this public repository. Commit reusable ingestion tools, source metadata, compact page/topic maps, and only the short source passages necessary to justify a specific decision. `.local/oracle-docs/` is ignored by git. The source PDF's official URL and SHA-256 belong in the registry/dossier; the binary itself does not.
+
+The Recruiting source workspace records one unresolved source-string distinction as SI-001 / GAP-008 in `oracle/ORC/SOURCE-ISSUES.md`. Preserve the exact context and physical-page citations; do not infer which Oracle Search index identifier is correct for the target tenant.
