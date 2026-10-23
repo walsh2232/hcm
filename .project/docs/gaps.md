@@ -77,6 +77,15 @@ involvement.
 - Needed: delivery model, cadence, key dates, applicable regimes.
 - Target: refinement.
 
+### GAP-008 · AMBIGUOUS · **High**
+**Oracle Search reingest identifier must be confirmed for the relevant configuration context.** DOC-001 Chapter 1 gives `fa-hcm-job application` (with a space) for Oracle Search maintenance after P2T/T2T when advanced job-application filters are in use; Chapter 13 gives `fa-hcm-jobapplication` (without a space) for Configure Attachment Search and attachment-index reingest. The contexts differ and the source alone does not establish whether these names should differ or whether one is a source typo.
+
+- Blocks: execution of the affected Oracle Search reingest and any runbook that would select one identifier without tenant/release confirmation.
+- Owner: Solution Architect with Documentation Specialist; raise an Oracle Support question if the target UI/current guide does not resolve the distinction.
+- Needed: inspect the target tenant's Configure Attachment Search row and run the current-release Oracle Search/P2T guidance before executing; retain the selected index name and evidence.
+- Working assumption: none. Do not guess or substitute one identifier for the other.
+- Target: before the next affected P2T/T2T or advanced attachment-search reingest.
+
 ## Closed gaps
 
 _None._
