@@ -25,7 +25,7 @@ The full chapter Markdown, SQLite FTS index, and retrieval chunks are private/lo
 
 ## Intake status and validation
 
-As of 2026-10-22, the private local corpus for **DOC-001** has 35 chapter files, 648 searchable SQLite topic headings, 650 CSV topic-index entries, 751 retrieval chunks, a SQLite FTS5 index, and 72 automated validation checks passing with no errors or warnings. Eleven lexical query tests cover candidate duplicates, vanity URLs, approvals, CSP actions, role/profile-option identifiers, interview-calendar privilege, and attachment indexing.
+As of 2026-10-22, the private local corpus for **DOC-001** has 35 chapter files, 648 searchable SQLite topic headings, 650 CSV topic-index entries, 751 retrieval chunks, a SQLite FTS5 index, and 79 automated validation checks passing with no errors or warnings; 13/13 offline tooling tests pass (6 normalizer, 5 HTML-ingest, 2 external-search). Eleven lexical query tests cover candidate duplicates, vanity URLs, approvals, CSP actions, role/profile-option identifiers, interview-calendar privilege, and attachment indexing.
 
 The companion-guide maps are navigation metadata only: **DOC-002** (*Using Recruiting*, G34440-08), **DOC-003** (*Using and Administering Recruiting Booster*, G34425-04), **DOC-004** (*Securing HCM*, G34732-10), and **DOC-005** (*Security Reference for HCM*, G34733-07) have not had their complete bodies ingested into the private corpus in this environment. Direct binary downloads failed, although Oracle's PDF viewer exposed page text/contents. Do not represent those books as locally searchable full-text sources.
 
