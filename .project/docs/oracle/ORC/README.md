@@ -13,13 +13,13 @@ This directory holds source records, compact navigation metadata, and documented
 | [SECURITY-NAVIGATION.md](SECURITY-NAVIGATION.md) | Routing across Recruiting security, Securing HCM, and the security reference book. |
 | [CROSS-GUIDE-ROUTER.md](CROSS-GUIDE-ROUTER.md) | Select the best official guide for a Recruiting implementation or troubleshooting question. |
 | [SOURCE-ISSUES.md](SOURCE-ISSUES.md) | Open source-level ambiguity log; SI-001/GAP-008 preserves two context-specific Oracle Search index names. |
-| [playbooks/](playbooks/README.md) | Sixteen compact implementation/diagnostic playbooks derived from DOC-001. |
+| [playbooks/](playbooks/README.md) | Nineteen compact implementation/diagnostic playbooks derived from DOC-001. |
 
 The full chapter Markdown, SQLite FTS index, and retrieval chunks are private/local artifacts. A generated PDF-derived corpus should live under `.local/oracle-docs/<DOC-ID>/`; this path is git-ignored. See the [documentation ingest contract](../../README.md) and [source registry](../../source-registry.md).
 
 ## Source coverage status
 
-- One Recruiting implementation guide has been extracted locally and validated for page markers, topic links, retrieval chunk structure, and search-index integrity. The local corpus now has 751 retrieval chunks; 16 source-linked playbooks cover high-utility implementation and troubleshooting paths. A table-of-contents page map for the 220-page Using Recruiting guide has also been added; its body text is not locally indexed.
+- One Recruiting implementation guide has been extracted locally and validated for page markers, topic links, retrieval chunk structure, and search-index integrity. The local corpus now has 751 retrieval chunks; 19 source-linked playbooks cover high-utility implementation and troubleshooting paths. A table-of-contents page map for the 220-page Using Recruiting guide has also been added; its body text is not locally indexed.
 - The current Oracle catalogue identifies companion guides for Recruiting usage, Recruiting Booster, HCM security, security reference, and HCM REST APIs. Current Booster and HCM security editions now have compact topic/page maps; the full companion bodies are not in this local corpus yet.
 - The target tenant's quarterly HCM release and confirmed module scope remain unknown. Do not claim tenant-release validation until the Product Owner resolves `GAP-002`.
 
@@ -35,7 +35,7 @@ The target tenant quarterly release and final project module scope remain unconf
 
 The playbook set now covers CSP automation, offer approvals/Move to HR, Recruiting security, career sites/application flows, candidate duplicates/search, Fast Formula contracts, candidate-data disposal and retention controls, Recruiting AI recommendations/data ingestion, requisition approvals, interview/calendar integration, partner provisioning, Oracle Search/P2T/T2T, notification templates, prescreening scoring/versioning, campaign opt-in/email operations, and agency portal access/privacy. They are concise source-linked pathways, not substitutes for the full chapter or tenant-specific release validation.
 
-The Oracle Search source-string distinction is recorded in [SOURCE-ISSUES.md](SOURCE-ISSUES.md) and tracked as GAP-008. Do not silently harmonize the values.
+The Oracle Search source-string distinction is recorded as SI-001/GAP-008. A second visually verified issue in the TDS active-rule statement/precedence example is SI-004/GAP-009. Both are recorded in [SOURCE-ISSUES.md](SOURCE-ISSUES.md); do not silently harmonize the source statements.
 
 ## Companion ingestion fallback
 
