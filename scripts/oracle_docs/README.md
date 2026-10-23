@@ -36,7 +36,7 @@ The companion search_corpus.py script aggregates all local retrieval-chunks.json
 
 After extraction, if a private corpus uses per-chapter Markdown files beneath a local wiki root, run the repeatable procedure normalizer before rebuilding the master text and search index:
 
-    python scripts/oracle_docs/normalize_markdown.py --root .local/oracle-wiki --check
-    python scripts/oracle_docs/normalize_markdown.py --root .local/oracle-wiki --apply
+    python scripts/oracle_docs/normalize_markdown.py --root ../oracle-recruiting-wiki --check
+    python scripts/oracle_docs/normalize_markdown.py --root ../oracle-recruiting-wiki --apply
 
 Run the `--check` command again; it should report zero changed files. The normalizer repairs repeated bold/number formatting, Setup and Maintenance navigation triplets, and known Oracle Search scheduled-process lists. It does not validate configuration or fix product behavior. Log source inconsistencies separately rather than normalizing identifier strings.
