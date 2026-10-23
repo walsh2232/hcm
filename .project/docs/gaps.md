@@ -86,6 +86,15 @@ involvement.
 - Working assumption: none. Do not guess or substitute one identifier for the other.
 - Target: before the next affected P2T/T2T or advanced attachment-search reingest.
 
+### GAP-009 · AMBIGUOUS · **High**
+**The TDS guide's active-rule limit statement appears to conflict with its multi-rule precedence example.** DOC-001 Chapter 35, physical PDF p. 443 / printed p. 425, states that only one rule can be active for an action at a time, then describes several rules for a specific action ordered by precedence. The source page has been visually checked; don't treat the issue as a text-extraction artifact.
+
+- Blocks: TDS designs whose correctness depends on multiple simultaneously active rules for an action or on a definitive interpretation of rule precedence.
+- Owner: Solution Architect with Documentation Specialist.
+- Needed: inspect the TDS rule list in the target tenant and check current-release Oracle guidance; test only in non-production and raise an Oracle Support question if the source remains ambiguous.
+- Working assumption: none. Do not guess whether the statements describe separate behaviors or a documentation inconsistency.
+- Target: before approving a TDS design that depends on multiple active rules for an action.
+
 ## Closed gaps
 
 _None._
@@ -98,14 +107,6 @@ Every assumption carries an owner, an expiry, and the cost of being wrong.
 **An expired assumption fails the build** (`scripts/project_lint.py`). Renew it
 with new evidence and a reason, or resolve it — never let it drift.
 
-### GAP-009 · AMBIGUOUS · **High**
-**The TDS guide's active-rule limit statement appears to conflict with its multi-rule precedence example.** DOC-001 Chapter 35, physical PDF p. 443 / printed p. 425, states that only one rule can be active for an action at a time, then describes several rules for a specific action ordered by precedence. The source page has been visually checked; don't treat the issue as a text-extraction artifact.
-
-- Blocks: TDS designs whose correctness depends on multiple simultaneously active rules for an action or on a definitive interpretation of rule precedence.
-- Owner: Solution Architect with Documentation Specialist.
-- Needed: inspect the TDS rule list in the target tenant and check current-release Oracle guidance; test only in non-production and raise an Oracle Support question if the source remains ambiguous.
-- Working assumption: none. Do not guess whether the statements describe separate behaviors or a documentation inconsistency.
-- Target: before approving a TDS design that depends on multiple active rules for an action.
 
 ### ASM-000 · _Reserved — illustrative example only_
 Used in documentation examples. Never a real assumption.
