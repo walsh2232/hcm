@@ -13,7 +13,7 @@ This directory holds source records, compact navigation metadata, and documented
 | [SECURITY-NAVIGATION.md](SECURITY-NAVIGATION.md) | Routing across Recruiting security, Securing HCM, and the security reference book. |
 | [CROSS-GUIDE-ROUTER.md](CROSS-GUIDE-ROUTER.md) | Select the best official guide for a Recruiting implementation or troubleshooting question. |
 | [SOURCE-ISSUES.md](SOURCE-ISSUES.md) | Open source-level ambiguity log; SI-001/GAP-008 preserves two context-specific Oracle Search index names. |
-| [playbooks/](playbooks/README.md) | Eight compact implementation/diagnostic playbooks derived from DOC-001. |
+| [playbooks/](playbooks/README.md) | Twelve compact implementation/diagnostic playbooks derived from DOC-001. |
 
 The full chapter Markdown, SQLite FTS index, and retrieval chunks are private/local artifacts. A generated PDF-derived corpus should live under `.local/oracle-docs/<DOC-ID>/`; this path is git-ignored. See the [documentation ingest contract](../../README.md) and [source registry](../../source-registry.md).
 
@@ -25,7 +25,7 @@ The full chapter Markdown, SQLite FTS index, and retrieval chunks are private/lo
 
 ## Intake status and validation
 
-As of 2026-10-22, the private local corpus for **DOC-001** has 35 chapter files, 648 indexed topics, 746 retrieval chunks, a SQLite FTS5 index, and 52 automated validation checks passing with no errors or warnings. Eight lexical query tests cover candidate duplicates, vanity URLs, offer approvals, the CSP delayed-action process, the offer approval task, candidate-security profile option, Move-to-HR duplicate check, and Express Apply profile import.
+As of 2026-10-22, the private local corpus for **DOC-001** has 35 chapter files, 648 searchable SQLite topic headings, 650 CSV topic-index entries, 751 retrieval chunks, a SQLite FTS5 index, and 68 automated validation checks passing with no errors or warnings. Eleven lexical query tests cover candidate duplicates, vanity URLs, approvals, CSP actions, role/profile-option identifiers, interview-calendar privilege, and attachment indexing.
 
 The companion-guide maps are navigation metadata only: **DOC-002** (*Using Recruiting*, G34440-08), **DOC-003** (*Using and Administering Recruiting Booster*, G34425-04), **DOC-004** (*Securing HCM*, G34732-10), and **DOC-005** (*Security Reference for HCM*, G34733-07) have not had their complete bodies ingested into the private corpus in this environment. Direct binary downloads failed, although Oracle's PDF viewer exposed page text/contents. Do not represent those books as locally searchable full-text sources.
 
