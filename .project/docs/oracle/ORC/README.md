@@ -34,3 +34,5 @@ The target tenant quarterly release and final project module scope remain unconf
 ## Playbook coverage
 
 The playbook set now covers CSP automation, offer approvals/Move to HR, Recruiting security, career sites/application flows, candidate duplicates/search, Fast Formula contracts, candidate-data disposal and retention controls, Recruiting AI recommendations/data ingestion, requisition approvals, interview/calendar integration, partner provisioning, and Oracle Search/P2T/T2T. They are concise source-linked pathways, not substitutes for the full chapter or tenant-specific release validation.
+
+The Oracle Search source-string distinction is recorded in [SOURCE-ISSUES.md](SOURCE-ISSUES.md) and tracked as GAP-008. Do not silently harmonize the values.
