@@ -1,6 +1,6 @@
 # Kanban Board
 
-**Sprint:** 000 — Inception · **Updated:** 2026-08-23 · **Board rules:** [`workflow.md`](workflow.md)
+**Sprint:** 000 — Inception · **Updated:** 2026-10-27 · **Board rules:** [`workflow.md`](workflow.md)
 
 Card format — `HCM-###` · `[role]` · title · linked artifacts · estimate.
 Roles: `PO` Product Owner · `BA` Business Analyst · `SA` Solution Architect ·
@@ -43,12 +43,14 @@ _WIP limit 6 · currently 5_
 
 ## In Progress
 
-_WIP limit 2 per role · currently 1 (DOC)_
+_WIP limit 2 per role · currently 2 roles (DOC, BA)_
 
-- HCM-010 [DOC] Intake batch 1 — receive, register, and index the Oracle HCM documentation set · DOC-001–DOC-006 · GAP-001 · ~2d
+- HCM-010 [DOC] Intake batch 1 — Oracle HCM documentation set · DOC-001–DOC-006 · GAP-001 · ~2d
   - Progress: DOC-001 (*Implementing Recruiting*, G34431-12) has been hashed, extracted, indexed, and smoke-tested in a private local corpus. DOC-002–DOC-006 have been catalogued from the official Oracle Help Center.
   - Remaining: confirm in-scope modules and target quarterly release; extract companion source content required for those modules; assess coverage and source currency.
   - The card remains in progress because the complete project source set and release binding are not established yet.
+- HCM-036 [BA] Product requirements and model-handoff documentation for HCM reference library · `.project/product/` · ~3d
+
 ## In Review
 
 _WIP limit 6 · currently 6 — Sprint 000 inception batch, single pull request_
