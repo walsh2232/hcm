@@ -34,7 +34,7 @@ Before updating any row, inspect the live repository and exact target commit. If
 | Automated edition comparison | PROPOSED | SRS FR-ORCH-011 | No integrated catalogue-to-diff lifecycle established yet; existing normalizer is not a version comparison pipeline. |
 | Explicit archive lifecycle | PROPOSED | SRS FR-ORCH-012 | Current repo keeps full source corpus local/ignored; no public guide edition archive lifecycle established. |
 | Bot branch and PR generation | PROPOSED | SRS FR-ORCH-014, FR-ORCH-015 | No automated publication PR workflow established. |
-| Dedicated public output repository | PROPOSED | PRD-001, ARCH-001 | Candidate name oracle-hcm-reference-library only; repository creation has not been verified or performed in this work. |
+| Dedicated public output repository | PROPOSED | PRD-001, ARCH-001 | Candidate name oracle-product-reference-library; repository creation has not been verified or performed in this work. |
 | End-user current-guide catalogue and changelog | PROPOSED | PRD-001, DATA-001 | Existing source registry is an implementation-project registry, not the planned public library's full guide catalogue/edition landing pages. |
 | Fresh-model onboarding and turn checkpoint | PROPOSED | MODEL_ONBOARDING.md | File has been added in this PR branch; it is not yet independently reviewed/accepted or enforced by automation. |
 
@@ -115,7 +115,7 @@ The inspected repository does not establish an end-to-end weekly guide lifecycle
 - complete run reports and failure notifications;
 - automated candidate PRs using least-privilege credentials;
 - weekly scheduled and manual-recovery triggers on the default branch;
-- the dedicated public documentation output repository.
+- the dedicated public documentation output repository `oracle-product-reference-library`; it has not been created in this work.
 
 These are requirements/proposals in PRD-001 and SRS-001, not existing capabilities.
 
