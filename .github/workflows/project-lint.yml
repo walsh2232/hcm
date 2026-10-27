@@ -1,9 +1,16 @@
 name: Project lint
 
 on:
-  push:
-    branches: ['**']
-  pull_request:
+  # Intentionally manual while the project workflow is being stabilised.
+  # Re-enable narrowly scoped PR automation after notification behaviour is verified.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: project-lint-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   project-lint:
