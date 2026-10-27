@@ -1,17 +1,15 @@
 name: Project lint
 
 on:
-  # Run once for PR lifecycle/update events. Do not run on every branch push:
-  # bulk/history pushes can otherwise generate a burst of redundant lint emails.
-  pull_request:
-    types: [opened, synchronize, reopened]
+  # Intentionally manual while the project workflow is being stabilised.
+  # Re-enable narrowly scoped PR automation after notification behaviour is verified.
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: project-lint-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  group: project-lint-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
