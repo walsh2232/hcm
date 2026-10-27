@@ -18,7 +18,7 @@ Oracle Fusion Cloud HCM implementation.
 | Understand how this project runs | [`.project/README.md`](.project/README.md) |
 | See what is being worked on | [`.project/kanban.md`](.project/kanban.md) |
 | See what is coming | [`.project/backlog.md`](.project/backlog.md) |
-| Read the HCM Reference Library product requirements package | [`.project/product/README.md`](.project/product/README.md) |
+| Read the Oracle Product Reference Library requirements package | [`.project/product/README.md`](.project/product/README.md) |
 | Know who decides what | [`.project/roles.md`](.project/roles.md) |
 | Know how a decision gets validated | [`.project/decision-framework.md`](.project/decision-framework.md) |
 | Find the authoritative Oracle source for a design | [`.project/docs/source-registry.md`](.project/docs/source-registry.md) |
