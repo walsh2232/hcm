@@ -1,6 +1,6 @@
 ---
 id: PRODUCT-DOC-INDEX-001
-title: Oracle HCM Reference Library product document index
+title: Oracle Product Reference Library product document index
 artifact_type: document-index
 status: PROPOSED
 version: 1.0.0
@@ -9,11 +9,11 @@ reviewer_role: PO
 last_reviewed: 2026-10-27
 ---
 
-# Oracle HCM Reference Library & Change Tracker
+# Oracle Product Reference Library & Change Tracker
 
 ## Why this folder exists
 
-This is the canonical requirements and engineering-design package for the proposed library that refreshes, normalizes, indexes, compares, and archives Oracle HCM documentation. It is intentionally readable by people and by a model starting with no chat history.
+This is the canonical requirements and engineering-design package for the proposed library that refreshes, normalizes, indexes, compares, and archives Oracle product documentation. HCM is the initial content family; the repository taxonomy is designed to extend to OCI and BI Publisher without renaming. It is intentionally readable by people and by a model starting with no chat history.
 
 ## Artifact index
 
@@ -45,4 +45,4 @@ This is the canonical requirements and engineering-design package for the propos
 - Source tiers and validation test: [../decision-framework.md](../decision-framework.md).
 - Gap and assumption register: [../docs/gaps.md](../docs/gaps.md).
 - Role decision rights and RACI: [../roles.md](../roles.md).
-- Board and work item: [../kanban.md](../kanban.md) and [../backlog.md](../backlog.md), HCM-036.
+- Board and work item: [../kanban.md](../kanban.md) and [../backlog.md](../backlog.md), HCM-036.\n- Repository recommendation: public published content in `oracle-product-reference-library`; processing scripts remain in `walsh2232/hcm` for the first MVP slice.
