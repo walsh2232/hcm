@@ -16,7 +16,7 @@ related_work_item: HCM-036
 
 Build a deterministic, source-traceable pipeline that retrieves official guide editions, extracts and normalizes content, validates completeness, compares versions, and proposes changes through pull requests. The tool shall fail closed: a candidate that is incomplete or invalid never replaces the last accepted current edition.
 
-The existing walsh2232/hcm repository remains the development/tooling and project-governance location. The proposed end-user library is a separate public repository, currently only a candidate named oracle-hcm-reference-library. Neither the creation of that repository nor the weekly workflow is claimed complete by this architecture document.
+The existing walsh2232/hcm repository is the initial processing workbench because the PDF/HTML ingestion, normalizer, local search, and tests already live there. It is not the reader-facing documentation repository. The recommended public output repository is oracle-product-reference-library: a product-family-neutral library containing published Markdown, edition metadata, and archives. Keep the existing processing scripts in walsh2232/hcm during the MVP to avoid a premature code migration; consider extracting a separate oracle-documentation-pipeline repository only if multi-product growth justifies it. Neither the public repository nor the weekly workflow is claimed complete here.
 
 ## 2. Component model
 
@@ -34,49 +34,54 @@ Cross-cutting components:
 
 ## 3. Proposed repository layout for the dedicated output library
 
+The reader-facing repository must be independent of product-specific implementation work. The top-level taxonomy is by product family, not one repository per module.
+
     README.md
     catalogue/
-      modules.yml
+      products.yml
       guides.yml
-    guides/
-      recruiting/
-        implementing-recruiting/
-          README.md
-          current.md
-      <module>/
-        <guide-slug>/
-          README.md
-          current.md
+    products/
+      hcm/
+        modules/
+          recruiting/
+            implementing-recruiting/
+              README.md
+              current.md
+      oci/
+        services/
+          <service>/
+            <guide-slug>/
+              README.md
+              current.md
+      bi-publisher/
+        <area>/
+          <guide-slug>/
+            README.md
+            current.md
     archive/
-      <module>/
-        <guide-slug>/
+      <product-family>/
+        <module-or-service>/<guide-slug>/
           <edition-id>.md
     metadata/
-      manifests/
-        <guide-id>/
-          <edition-id>.json
-      runs/
-        <YYYY-MM-DD>/
-          report.json
+      manifests/<guide-id>/<edition-id>.json
+      runs/<YYYY-MM-DD>/<run-id>.json
     changelog/
-      weekly/
-        <YYYY-MM-DD>.md
-    scripts/
-      oracle_docs/
-    tests/
+      weekly/<YYYY-MM-DD>.md
+    CONTRIBUTING.md
     .github/
-      workflows/
-        refresh-docs.yml
+      PULL_REQUEST_TEMPLATE.md
 
-The exact guide folder names can evolve before the new repository is created. Once consumers depend on paths, use stable landing pages and do not rename current URLs unnecessarily. Archived files are versioned content; manifests are machine-readable provenance records. A guide README identifies the current edition, current-status evidence, latest successful refresh, and links to archives.
+This example makes no claim that OCI or BI Publisher sources have already been ingested. HCM/Recruiting is the first vertical slice. Future product-family expansion should add catalogue records and product directories, not require a repository rename or a new top-level layout.
 
-The existing development scripts remain under scripts/oracle_docs/ in walsh2232/hcm until the separate repository boundary and transfer strategy are accepted.
+Only reader-facing normalized content, catalogue metadata, edition manifests, run reports and change history belong in oracle-product-reference-library. Processing scripts, fixture inputs and parser tests remain under scripts/oracle_docs/ and tests/ in walsh2232/hcm for the initial slice. The latter repository remains the existing HCM workbench, not the public library. A separate oracle-documentation-pipeline repo is a possible later extraction, not required to complete the first vertical slice.
 
+The guide README identifies its current edition, last successful validation, manifest and archived editions. Once consumer-facing paths exist, do not rename them casually.
+ 
 ## 4. Tool choices
 
 | Tool | Use | State and rationale |
 |---|---|---|
-| GitHub repositories and pull requests | Version control, public browsing, history, review and archival content | Existing and available; existing repo is walsh2232/hcm. Dedicated output repo is PROPOSED. |
+| GitHub repositories and pull requests | Version control, public browsing, history, review and archival content | Existing and available; existing repo is walsh2232/hcm. Public output repo `oracle-product-reference-library` is PROPOSED. |
 | GitHub Actions | Weekly schedule, manual recovery, test gates, bot branch and PR creation | Existing project workflow is manual-only today. Scheduled workflow is PROPOSED. Official behavior: https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows |
 | Python 3.11 in CI | Shared implementation and repeatable test environment | Existing project-lint workflow uses Python 3.11. Keep the new pipeline compatible with the declared Python support baseline. |
 | Python urllib.request | HTTPS source retrieval in the existing HTML ingester | Already used. Add explicit host/path allowlisting, bounded timeout, retry/backoff, size limits and redirect checks before production use. |
@@ -130,7 +135,7 @@ A run creates a candidate branch and a single reviewable PR or updates the exist
 
 ## 9. Architecture decisions still requiring acceptance
 
-- Confirm separate public content repository and its name.
+- Confirm the public content repository name and the proposed split: processing remains in walsh2232/hcm during MVP; published content lives in oracle-product-reference-library.
 - Confirm host/path allowlist and first-wave catalogue.
 - Confirm source-publication authorization record and publication scope.
 - Confirm review policy and authorized bot identity/token model.
