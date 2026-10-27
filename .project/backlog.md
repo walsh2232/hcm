@@ -11,27 +11,28 @@ Board state: [`kanban.md`](kanban.md) · Gaps: [`docs/gaps.md`](docs/gaps.md)
 | Rank | ID | Title | Role | State | Blocked by |
 | --- | --- | --- | --- | --- | --- |
 | 1 | HCM-010 | Intake batch 1 — Oracle HCM documentation set | DOC | In Progress | GAP-001 |
-| 2 | HCM-011 | Confirm in-scope modules, release, phasing | PO | Ready | — |
-| 3 | HCM-013 | Success criteria and release exit criteria | PO | Ready | — |
-| 4 | HCM-014 | Current-state systems & integration inventory | BA | Ready | — |
-| 5 | HCM-012 | Environment & instance registry | SA | Ready | — |
-| 6 | HCM-015 | Test strategy outline | QA | Ready | HCM-013 |
-| 7 | HCM-020 | Fit/gap analysis framework | BA | Backlog | HCM-010, HCM-011 |
-| 8 | HCM-026 | Workforce structures design (GHR) | BA | Backlog | HCM-010, HCM-011 |
-| 9 | HCM-022 | Security & role design approach (SEC) | SA | Backlog | HCM-010 |
-| 10 | HCM-021 | Integration architecture baseline | SA | Backlog | HCM-010, HCM-014 |
-| 11 | HCM-023 | Data conversion strategy (DAT) | SA | Backlog | HCM-010, HCM-014 |
-| 12 | HCM-025 | Environment refresh & release management | SA | Backlog | HCM-012 |
-| 13 | HCM-030 | Extension policy — config vs. extension (EXT) | SA | Backlog | HCM-010 |
-| 14 | HCM-031 | Approvals & workflow (BPM) design approach | BA | Backlog | HCM-010, HCM-026 |
-| 15 | HCM-024 | HDL template library & validation harness | DEV | Backlog | HCM-023 |
-| 16 | HCM-027 | Test data strategy | QA | Backlog | HCM-015 |
-| 17 | HCM-029 | Reporting & analytics approach (RPT) | SA | Backlog | HCM-010, HCM-011 |
-| 18 | HCM-033 | Non-functional requirements | QA | Backlog | HCM-014 |
-| 19 | HCM-034 | Compliance & data residency assessment | SA | Backlog | HCM-011, HCM-014 |
-| 20 | HCM-032 | Oracle quarterly update monitoring process | DOC | Backlog | HCM-010 |
-| 21 | HCM-028 | Runbook set — cutover, hypercare, updates | DOC | Backlog | HCM-025 |
-| 22 | HCM-035 | CI pipeline extension — per-module validation | DEV | Backlog | HCM-024 |
+| 2 | HCM-036 | Product requirements and model-handoff documentation for HCM reference library | BA | In Progress | — |
+| 3 | HCM-011 | Confirm in-scope modules, release, phasing | PO | Ready | — |
+| 4 | HCM-013 | Success criteria and release exit criteria | PO | Ready | — |
+| 5 | HCM-014 | Current-state systems & integration inventory | BA | Ready | — |
+| 6 | HCM-012 | Environment & instance registry | SA | Ready | — |
+| 7 | HCM-015 | Test strategy outline | QA | Ready | HCM-013 |
+| 8 | HCM-020 | Fit/gap analysis framework | BA | Backlog | HCM-010, HCM-011 |
+| 9 | HCM-026 | Workforce structures design (GHR) | BA | Backlog | HCM-010, HCM-011 |
+| 10 | HCM-022 | Security & role design approach (SEC) | SA | Backlog | HCM-010 |
+| 11 | HCM-021 | Integration architecture baseline | SA | Backlog | HCM-010, HCM-014 |
+| 12 | HCM-023 | Data conversion strategy (DAT) | SA | Backlog | HCM-010, HCM-014 |
+| 13 | HCM-025 | Environment refresh & release management | SA | Backlog | HCM-012 |
+| 14 | HCM-030 | Extension policy — config vs. extension (EXT) | SA | Backlog | HCM-010 |
+| 15 | HCM-031 | Approvals & workflow (BPM) design approach | BA | Backlog | HCM-010, HCM-026 |
+| 16 | HCM-024 | HDL template library & validation harness | DEV | Backlog | HCM-023 |
+| 17 | HCM-027 | Test data strategy | QA | Backlog | HCM-015 |
+| 18 | HCM-029 | Reporting & analytics approach (RPT) | SA | Backlog | HCM-010, HCM-011 |
+| 19 | HCM-033 | Non-functional requirements | QA | Backlog | HCM-014 |
+| 20 | HCM-034 | Compliance & data residency assessment | SA | Backlog | HCM-011, HCM-014 |
+| 21 | HCM-032 | Oracle quarterly update monitoring process | DOC | Backlog | HCM-010 |
+| 22 | HCM-028 | Runbook set — cutover, hypercare, updates | DOC | Backlog | HCM-025 |
+| 23 | HCM-035 | CI pipeline extension — per-module validation | DEV | Backlog | HCM-024 |
 | — | HCM-001..006 | Sprint 000 inception batch | — | In Review | — |
 
 ---
@@ -317,3 +318,33 @@ their impact on integration and reporting design. Depends on HCM-011, HCM-014.
 Extend CI beyond project lint: validate HDL templates, fast formula syntax where
 tooling allows, report definitions, and configuration exports on every PR.
 Depends on HCM-024.
+
+### HCM-036
+**Product requirements and model-handoff documentation for HCM reference library** · `[BA]` · ~3d · In Progress
+
+Define the problem, users, MVP, functional and non-functional requirements,
+architecture constraints, tool choices, data/manifest contract, test strategy,
+operational workflow, RACI, phased delivery, and model-continuity protocol for
+the proposed Oracle HCM Reference Library & Change Tracker. Clearly distinguish
+current implementation from planned behavior and validation evidence.
+
+Acceptance:
+- A linked product-document index, PRD, software requirements specification,
+  architecture/design specification, data contract, validation plan, operations
+  runbook, and delivery/RACI plan exist under `.project/product/`.
+- A root-level model onboarding guide gives an ordered first-read path and
+  explains how to validate claims against repository state.
+- Every requirement has a stable ID, priority, acceptance criteria, owner role,
+  and verification method.
+- Proposed, implemented, locally tested, CI-verified, and accepted states are
+  not conflated.
+- Existing code and workflow paths are cited exactly; suspected defects are
+  recorded as unverified findings pending execution.
+- A checkpoint protocol requires reviewing the latest two substantive turns
+  against the canonical files every two turns and before consequential decisions.
+- The user-mentioned acronym “DEE” is recorded as unresolved rather than
+  expanded by guesswork.
+
+Source: `N/A — internal process decision`. Related implementation: `scripts/oracle_docs/`,
+`tests/test_oracle_html_ingest.py`, `.project/docs/source-registry.md`,
+`.project/decision-framework.md`.
