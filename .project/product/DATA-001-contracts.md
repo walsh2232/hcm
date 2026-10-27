@@ -32,8 +32,8 @@ Required fields:
 |---|---|---|---|
 | guide_id | string | Yes | Stable project ID, e.g. GUIDE-ORC-001 |
 | title | string | Yes | Official title as presented by Oracle |
-| product | string | Yes | Product family, initially Oracle Fusion Cloud HCM |
-| module_codes | array[string] | Yes | Controlled module identifiers from module registry |
+| product_family | string | Yes | Product family, e.g. hcm, oci, bi-publisher; initial populated family is HCM |
+| module_codes | array[string] | Yes | Controlled taxonomy for the product family: HCM module, OCI service, or BI Publisher area/component |
 | guide_type | enum | Yes | Implementing, administering, using, security, REST/API, release notes, other |
 | locale | string | Yes | Language/locale identifier |
 | canonical_url | URI | Yes | Official source/landing URL |
@@ -112,14 +112,14 @@ Legal transitions are explicit. A failed candidate cannot transition to CURRENT.
 ## 6. File naming and output path contract
 
 Proposed library paths:
-- guide landing page: guides/<module>/<guide-slug>/README.md
-- current normalized content: guides/<module>/<guide-slug>/current.md
-- historical edition: archive/<module>/<guide-slug>/<edition-id>.md
+- guide landing page: products/<product-family>/<module-or-service>/<guide-slug>/README.md
+- current normalized content: products/<product-family>/<module-or-service>/<guide-slug>/current.md
+- historical edition: archive/<product-family>/<module-or-service>/<guide-slug>/<edition-id>.md
 - edition manifest: metadata/manifests/<guide-id>/<edition-id>.json
 - run report: metadata/runs/<date>/<run-id>.json
 - weekly change report: changelog/weekly/<date>.md
 
-The landing page links to current.md, records the current edition/hash and last successful validation, and links to all archived editions. A new edition must not overwrite current content before tests and review have succeeded.
+The landing page links to current.md, records the current edition/hash and last successful validation, and links to all archived editions. Example product-family roots are products/hcm/, products/oci/, and products/bi-publisher/. These are taxonomy examples, not claims that those families are already populated. A new edition must not overwrite current content before tests and review have succeeded.
 
 ## 7. Schema evolution
 
