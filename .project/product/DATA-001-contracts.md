@@ -56,7 +56,7 @@ Every accepted or candidate edition has one manifest with:
 
 - schema_version;
 - guide_id and source registry ID(s);
-- title, edition identifier, locale, guide type and module codes;
+- title, product_family, edition identifier, locale, guide type and module codes;
 - official canonical URL and final retrieval URL;
 - source kind and content type;
 - retrieved_at_utc and processed_at_utc;
