@@ -88,9 +88,9 @@ After every two substantive turns, before a repository write or consequential de
 
 | ID | Decision/question | Owner | Current recommendation | Status |
 |---|---|---|---|---|
-| OPEN-ORCH-001 | Confirm the separate public repository boundary and name. | PO | Separate output library from the existing HCM implementation/tooling repository; proposed name oracle-hcm-reference-library. | PROPOSED |
-| OPEN-ORCH-002 | Confirm the first-wave module/guide list. | PO + DOC | Start with the already registered Recruiting implementing guide as a vertical slice; do not infer whole-HCM coverage. | PROPOSED |
-| OPEN-ORCH-003 | Confirm the intended expansion of “DEE” from the kickoff speech-to-text. | PO | Keep unresolved; do not silently interpret the acronym. The current package covers PRD, SRS, architecture, data contract, test strategy, runbook, delivery/RACI and ADR governance. | OPEN |
+| OPEN-ORCH-001 | Confirm the public output repository name and first-phase repository boundary. | PO | Create a clean public output repository named oracle-product-reference-library, organized by product family. Keep processing scripts in walsh2232/hcm for the first vertical slice to reuse existing work and avoid premature migration; reconsider a separate oracle-documentation-pipeline only if multi-product scale justifies it. | PROPOSED |
+| OPEN-ORCH-002 | Confirm the first-wave module/guide list and later product families. | PO + DOC | Start with the already registered Recruiting implementing guide; reserve neutral catalogue/path support for OCI and BI Publisher, but do not claim those families are in scope yet. | PROPOSED |
+| OPEN-ORCH-003 | Confirm whether “DEE” in the speech-to-text was an intended term or transcription error. | PO | The exact surrounding transcript is quoted in the project conversation; no expansion is inferred. | OPEN |
 | OPEN-ORCH-004 | Select human independent QA and architecture reviewers. | PO | Name reviewers before acceptance of implementation PR. | OPEN |
 | OPEN-ORCH-005 | Select completeness threshold for PDFs and HTML chains. | QA + DOC | Derive from representative guide measurements and visual spot-checks rather than inventing a universal percentage. | OPEN |
 | OPEN-ORCH-006 | Define publication approval record and scope. | PO | Capture the supplied organizational permission scope before the first public automated content release; development and local testing can continue. | OPEN |
