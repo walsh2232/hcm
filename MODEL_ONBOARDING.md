@@ -79,14 +79,15 @@ A substantive turn means a user request that changes scope, a design decision, i
 
 ## Repository status at inception of this package
 
-The checked project is [walsh2232/hcm](https://github.com/walsh2232/hcm). Product-documentation work is tracked as HCM-036. It is a tooling/governance repository today, not yet the dedicated public end-user documentation repository proposed by the PRD.
+The checked project is [walsh2232/hcm](https://github.com/walsh2232/hcm). Product-documentation work is tracked as HCM-036. The proposed design keeps this repository as the initial processing workbench, while published, coworker-facing Markdown lives in a separate public repository provisionally named `oracle-product-reference-library`. That output repository has not been created in this work.
+
+The repository boundary and product taxonomy are documented as proposals in `.project/product/PRD-001-reference-library.md`, `ARCH-001-architecture.md`, and `PLAN-001-delivery-raci.md`. The output taxonomy starts at `products/hcm/` and is designed to add `products/oci/` and `products/bi-publisher/` without renaming the repository. The existing scripts remain in `walsh2232/hcm` for the first MVP slice; a separate generic pipeline repo is a later option, not an approved requirement.
 
 Existing implementations are listed in STATUS-001. In particular:
 - PDF intake, HTML fallback, normalizer, and SQLite FTS5 search scripts already exist under scripts/oracle_docs/.
 - The project lint workflow currently has workflow_dispatch only; the weekly schedule is not implemented.
 - The current HTML ingester appears to reference an undefined name in link parsing. Treat the relevant test as suspect until rerun against the exact current commit.
-- The dedicated public output repository has not been created as part of this documentation package.
-- “DEE” was mentioned in the kickoff speech-to-text, but its intended expansion is not established. Do not invent one; see the open questions in PLAN-001.
+- “DEE” came from this raw speech-to-text excerpt: “...include things like requirements documents things like DEE make sure your reference like what tools you want to use...” The surrounding words do not establish whether DEE was intended or was transcription noise. Do not invent an expansion; see PLAN-001.
 
 ## Definition of a reliable handoff
 
