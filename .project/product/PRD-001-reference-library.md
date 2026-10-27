@@ -1,6 +1,6 @@
 ---
 id: PRD-ORCH-001
-title: Oracle HCM Reference Library and Change Tracker
+title: Oracle Product Reference Library and Change Tracker
 artifact_type: product-requirements-document
 status: PROPOSED
 version: 1.0.0
@@ -12,19 +12,19 @@ related_work_item: HCM-036
 related_specs: [SRS-ORCH-001, ARCH-ORCH-001, DATA-ORCH-001, TEST-ORCH-001, OPS-ORCH-001]
 ---
 
-# PRD-001 — Oracle HCM Reference Library & Change Tracker
+# PRD-001 — Oracle Product Reference Library & Change Tracker
 
 ## 1. Executive summary
 
-Build a public, version-controlled library for Oracle HCM documentation that makes the confirmed current guides easy to find and preserves superseded editions in an explicit archive. A weekly automation discovers sources, retrieves authorized official documents, converts them into source-traceable Markdown, validates the result, compares editions, and proposes repository changes through a pull request.
+Build a public, version-controlled library for Oracle product documentation that makes confirmed current guides easy to find and preserves superseded editions in an explicit archive. The initial delivery slice is Oracle Fusion Cloud HCM; the information architecture must also support future product families such as OCI and BI Publisher without repository renaming or a structural redesign. A weekly automation discovers sources, retrieves authorized official documents, converts them into source-traceable Markdown, validates the result, compares editions, and proposes repository changes through a pull request.
 
 The initial product is a reliable documentation acquisition and lifecycle system, not an autonomous Oracle configuration expert. The core promise is that a reader or AI model can identify which guide and edition a passage came from, what changed, whether the corpus appears complete, and what is known versus unverified.
 
-The current walsh2232/hcm repository contains tooling and governance foundations. The dedicated public documentation output repository, automated weekly refresh, complete archive lifecycle, and automated changelog are proposed and are not yet implemented. See STATUS-001 for evidence.
+The current walsh2232/hcm repository is the existing HCM workbench and contains prototype ingestion tooling plus HCM project governance and implementation material. It is not the intended coworker-facing documentation library. The proposed public output repository is oracle-product-reference-library. Keep the existing processing scripts in walsh2232/hcm during the MVP to avoid unnecessary migration while validating the first vertical slice; extract them into a neutral tooling repository only if/when that separation has a clear benefit. The public output repository and weekly lifecycle are not yet implemented. See STATUS-001.
 
 ## 2. Problem statement
 
-Oracle HCM implementation and administration knowledge is spread across module guides, release-specific content, security references, REST references, and quarterly update documentation. Practitioners need to retrieve the correct guide quickly and compare historical wording without repeatedly searching for PDFs or relying on model recollection.
+Oracle product knowledge is spread across product guides, module/service documentation, release-specific content, security references, API references, and update documentation. HCM is the initial delivery area; the catalogue should also accommodate OCI and BI Publisher when explicitly brought into scope. Practitioners need to retrieve the correct guide quickly and compare historical wording without repeatedly searching for PDFs or relying on model recollection.
 
 Manual downloads and conversion become stale. A simple scraper is not enough: it can miss chapters, flatten tables incorrectly, mistake a newer guide edition for proof of a tenant release, or overwrite the known-good edition with an incomplete retrieval. A trustworthy library therefore requires provenance, completeness checks, explicit lifecycle states, safe failure behavior, reviewable changes, and model-friendly onboarding.
 
@@ -43,7 +43,7 @@ A practitioner or fresh model can open one repository and determine:
 
 | User | Need | Primary outcome |
 |---|---|---|
-| Oracle HCM practitioner / analyst | Quickly find the right module guide and exact passage | Citable, searchable Markdown |
+| Oracle product practitioner / analyst | Quickly find the right product/module/service guide and exact passage | Citable, searchable Markdown |
 | Implementation / support colleague | Compare current and older documented behavior | Edition-specific archive and content diff |
 | Technical writer / documentation owner | Keep the catalogue complete and current | Scheduled checks, manifests and review queue |
 | AI model with no prior conversation | Resume work from repository evidence | Model onboarding and explicit status/source contracts |
@@ -67,8 +67,8 @@ Targets for ingest completeness, page-level confidence thresholds, and the numbe
 ## 6. Scope
 
 ### In scope — MVP
-- A dedicated public repository for the shareable reference library; candidate name: oracle-hcm-reference-library. Name availability and creation are not yet verified.
-- A catalogue of official Oracle HCM guide sources, modules, guide types, locales, edition identifiers, and official URLs.
+- A dedicated public repository for the shareable reference library; candidate name: oracle-product-reference-library. Name availability and creation are not yet verified. The repository taxonomy is product-family neutral, with HCM as the first populated family and room for OCI and BI Publisher.
+- A catalogue of official Oracle guide sources, product family, module/service, guide type, locale, edition identifier, and official URL.
 - Weekly scheduled source checks and a manual dispatch for recovery and testing.
 - PDF ingestion using the existing PyMuPDF-based tooling, plus the existing HTML fallback where appropriate.
 - Deterministic extraction/normalization, page or URL provenance, checksums, manifests, diagnostics, and validation.
@@ -107,7 +107,7 @@ Targets for ingest completeness, page-level confidence thresholds, and the numbe
 |---|---|---|---|
 | ASM-ORCH-001 | The Product Owner states that personal/organizational use and coworker sharing are authorized. Publication scope and evidence of approval should be recorded before the first automated public content publication. | Project-provided premise; PO owns confirmation | Change publication/storage policy; local tooling can still be developed |
 | ASM-ORCH-002 | GitHub public repository and GitHub Actions are acceptable hosting and scheduling choices. | PROPOSED; PO confirms | Select another hosting/scheduler |
-| ASM-ORCH-003 | Initial scope is official Oracle Fusion Cloud HCM guides. Exact modules and the first coverage set are not yet confirmed. | PROPOSED; PO owns | Adjust catalogue and discovery scope |
+| ASM-ORCH-003 | The first live content slice is official Oracle Fusion Cloud HCM, starting with Recruiting. The repository taxonomy can support OCI and BI Publisher later, but their inclusion in the monitored source scope is not yet approved. | PROPOSED; PO owns | Adjust catalogue and discovery scope without renaming the repository |
 | ASM-ORCH-004 | Existing scripts are reusable after defects and current tests are validated. | IMPLEMENTED-UNVERIFIED; DEV/QA | Repair, replace, or narrow the reusable surface |
 | ASM-ORCH-005 | Guide edition IDs and tenant quarterly release are separate fields and must not be conflated. | Required design rule | Wrong currency claims and incorrect recommendations |
 
@@ -129,7 +129,7 @@ Do not add these assumptions to the existing HCM project assumption register unl
 ## 10. User-visible repository experience
 
 The intended repository has:
-- a front-page index grouped by HCM module and guide type;
+- a front-page index grouped by product family, then HCM module / OCI service / BI Publisher area and guide type;
 - a stable landing page per guide identifying the current edition and its metadata;
 - readable Markdown with preserved source page/section or source-URL anchors;
 - an explicit archive folder organized by module, guide and edition;
@@ -144,7 +144,7 @@ See ARCH-001 for a proposed directory layout and DATA-001 for the metadata contr
 - **MVP-0: reliability baseline.** Reconcile the current HTML parser defect and actual test results; define contracts and fixtures.
 - **MVP-1: one-guide vertical slice.** Use the already registered Recruiting guide as a representative case; prove discovery, retrieval, conversion, provenance, validation, change detection, archive and PR lifecycle with controlled fixtures.
 - **MVP-2: weekly operation.** Enable the weekly scheduler and manual recovery path only after the vertical slice passes.
-- **MVP-3: HCM catalogue expansion.** Add in-scope guides/module groups via registry entries and coverage checks, not copied logic.
+- **MVP-3: catalogue expansion.** Add approved HCM guides first, then OCI and BI Publisher only when prioritized; use product-family metadata and shared adapters rather than copied code.
 - **Later: semantic change summaries.** If LLM summarization is adopted, summaries remain attributed to a model/tool version and require reviewer acceptance.
 - **Separate future product:** tenant configuration evidence and technical-answer validation. It may consume the reference library but is not part of this library MVP.
 
@@ -155,8 +155,8 @@ The MVP is not accepted until all required checks in SRS-001 and TEST-001 pass o
 ## 13. Open questions
 
 - Which modules and guide types are first-wave scope? Owner: PO.
-- Should the public repository be named oracle-hcm-reference-library, or another available name? Owner: PO.
-- What is the intended meaning of “DEE” in the spoken kickoff? The transcript does not establish an expansion. Owner: PO; no expansion is inferred in this specification.
+- Approve the public repository name and topology. Recommendation: oracle-product-reference-library for published Markdown/archive; keep processing in walsh2232/hcm during the initial MVP. Owner: PO.
+- What is the intended meaning of “DEE” in the speech-to-text transcript of the kickoff? The transcript alone does not establish whether this was a real acronym or transcription error. Owner: PO; no expansion is inferred in this specification.
 - Which human will act as independent architecture reviewer and QA reviewer? Owner: PO.
 - What page-text completeness threshold is acceptable per guide type? Owners: QA + DOC.
 - Should full-text search be implemented only through GitHub Markdown initially, or also through a generated local/offline FTS bundle? Proposed MVP: GitHub browsing first; local FTS as a tool, not a required hosted service.
