@@ -14,9 +14,11 @@ Oracle Fusion Cloud HCM implementation.
 
 | If you want to… | Read |
 | --- | --- |
+| Resume work in a fresh ChatGPT/model session | [`MODEL_ONBOARDING.md`](MODEL_ONBOARDING.md) |
 | Understand how this project runs | [`.project/README.md`](.project/README.md) |
 | See what is being worked on | [`.project/kanban.md`](.project/kanban.md) |
 | See what is coming | [`.project/backlog.md`](.project/backlog.md) |
+| Read the HCM Reference Library product requirements package | [`.project/product/README.md`](.project/product/README.md) |
 | Know who decides what | [`.project/roles.md`](.project/roles.md) |
 | Know how a decision gets validated | [`.project/decision-framework.md`](.project/decision-framework.md) |
 | Find the authoritative Oracle source for a design | [`.project/docs/source-registry.md`](.project/docs/source-registry.md) |
@@ -25,20 +27,20 @@ Oracle Fusion Cloud HCM implementation.
 
 ## Repository layout
 
-```
-.project/          Project operating system: Kanban, backlog, ADRs, doc registry,
-                   role charters, decision framework, templates, sprints
-config/            Environment & instance registry, non-secret configuration
-data/              HDL / HSDL templates and synthetic fixtures (no production PII)
-extensions/        Fast Formulas, Redwood/VBS extensions, page configurations
-integrations/      Inbound & outbound interfaces (REST, SOAP, ATOM, HDL, HCM Extracts)
-reports/           BI Publisher and OTBI report definitions
-security/          Role design matrices, data security policy design
-scripts/           Repository tooling (project lint, validators)
-tests/             Test strategy, test cases, automation
-```
+    .project/          Project operating system: Kanban, backlog, ADRs, doc registry,
+                       role charters, decision framework, templates, sprints
+    .project/product/  HCM Reference Library PRD, SRS, architecture, data contracts,
+                       test strategy, runbook, delivery/RACI and status register
+    config/            Environment & instance registry, non-secret configuration
+    data/              HDL / HSDL templates and synthetic fixtures (no production PII)
+    extensions/        Fast Formulas, Redwood/VBS extensions, page configurations
+    integrations/      Inbound & outbound interfaces (REST, SOAP, ATOM, HDL, HCM Extracts)
+    reports/           BI Publisher and OTBI report definitions
+    security/          Role design matrices, data security policy design
+    scripts/           Repository tooling (project lint, validators)
+    tests/             Test strategy, test cases, automation
 
-Each directory carries its own `README.md` describing what belongs there and the
+Each directory carries its own README.md describing what belongs there and the
 naming conventions that apply.
 
 ## Oracle Recruiting documentation intake
@@ -51,7 +53,7 @@ The Recruiting intake is underway under [draft PR #1](https://github.com/walsh22
 - [Source issues](.project/docs/oracle/ORC/SOURCE-ISSUES.md) and [GAP-008](.project/docs/gaps.md)
 - [Local PDF intake and search tooling](scripts/oracle_docs/README.md)
 
-The HTML ingestion fallback is ready for a local/network-enabled run, but outbound DNS/network access was unavailable during this build, so companion guide bodies are not yet fully indexed. The TDS active-rule statement/precedence ambiguity is also tracked as SI-004/GAP-009 after visual inspection of DOC-001 physical PDF p. 443. The full PDF and full extracted text corpus are intentionally not committed to this public repo. The edition identifier G34431-12 is not evidence of the target tenant's quarterly release. The companion HTML-ingestion fallback and separate multi-guide search utility are implemented. The latest local wiki validator passes 79/79 checks and the offline tooling regression suite passes 13/13 tests. Live companion retrieval was blocked by outbound DNS/network restrictions, so companion texts remain navigation-only. Latest remote CI after all new changes is still to be confirmed.
+The HTML ingestion fallback is ready for a local/network-enabled run, but outbound DNS/network access was unavailable during this build, so companion guide bodies are not yet fully indexed. The TDS active-rule statement/precedence ambiguity is also tracked as SI-004/GAP-009 after visual inspection of DOC-001 physical PDF p. 443. The full PDF and full extracted text corpus are intentionally not committed to this public repo. The edition identifier G34431-12 is not evidence of the target tenant's quarterly release. The companion HTML-ingestion fallback and separate multi-guide search utility are implemented. Earlier local validation reported 79/79 wiki checks and 13/13 offline tests, but those figures are not a substitute for rerunning tests against the current candidate SHA. A source-level issue in HTML anchor handling is recorded in [STATUS-001](.project/product/STATUS-001-as-built-vs-proposed.md). Live companion retrieval was blocked by outbound DNS/network restrictions, so companion texts remain navigation-only. Latest remote CI after all new changes is still to be confirmed.
 
 ## Ground rules
 
@@ -61,3 +63,4 @@ The HTML ingestion fallback is ready for a local/network-enabled run, but outbou
    with an owner and an expiry date, and a gap is raised.
 3. **No production PII in the repository.** Ever. Synthetic fixtures only.
 4. **Decisions live in ADRs, not in chat.** If it shaped the solution, it is an ADR.
+5. **Model continuity is documented.** Every new model session follows MODEL_ONBOARDING.md, and material decisions are reconciled with canonical repository artifacts.
